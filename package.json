@@ -9,9 +9,11 @@
     "start": "vue-cli-service serve --open"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "core-js": "^3.4.4",
     "mdbvue": "6.5.0",
     "vue": "^2.6.11",
+    "vue-axios": "^2.1.5",
     "vue2-google-maps": "^0.10.7"
   },
   "devDependencies": {
