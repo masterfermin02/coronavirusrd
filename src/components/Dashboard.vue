@@ -16,7 +16,7 @@
               <div class="data">
                 <p>INFECTADOS</p>
                 <h4>
-                  <strong>2000</strong>
+                  <strong>{{countryStat.cases}}</strong>
                 </h4>
               </div>
             </div>
@@ -29,7 +29,7 @@
               <div class="data">
                 <p>OBSERVACION</p>
                 <h4>
-                  <strong>200</strong>
+                  <strong>{{countryStat.observes}}</strong>
                 </h4>
               </div>
             </div>
@@ -42,7 +42,7 @@
               <div class="data">
                 <p>RECUPERADOS</p>
                 <h4>
-                  <strong>20000</strong>
+                  <strong>{{countryStat.recovereds}}</strong>
                 </h4>
               </div>
             </div>
@@ -55,7 +55,7 @@
               <div class="data">
                 <p>MUERTES</p>
                 <h4>
-                  <strong>2000</strong>
+                  <strong>{{countryStat.deaths}}</strong>
                 </h4>
               </div>
             </div>
@@ -143,6 +143,16 @@
 
 <script>
 import { mdbRow, mdbCol, mdbCard, mdbCardBody, mdbCardHeader, mdbIcon, mdbTbl, mdbBarChart, } from 'mdbvue'
+import DRService from '@/services/DRService'
+
+const CountryStat = (data) => {
+    return {
+        cases: data.cases || 0,
+        observes: data.observes || 0,
+        deaths: data.deaths || 0,
+        recovereds: data.recovereds || 0
+    };
+};
 
 export default {
   name: 'Dashboard',
@@ -158,6 +168,7 @@ export default {
   },
   data () {
     return {
+        countryStat: new CountryStat({}),
       showFrameModalTop: false,
       showFrameModalBottom: false,
       showSideModalTopRight: false,
@@ -306,7 +317,23 @@ export default {
         maintainAspectRatio: false
       }
     }
-  }
+  },
+    methods: {
+        async loadData() {
+            const stat = await DRService.getStat();
+            const latestCountry = stat.latest_stat_by_country.shift();
+            this.countryStat = new CountryStat({
+                cases: latestCountry.total_cases,
+                deaths: latestCountry.total_deaths,
+                recovereds: latestCountry.total_recovered,
+                observes: latestCountry.total_cases_per1m,
+            });
+        }
+    },
+
+    mounted() {
+        this.loadData();
+    }
 }
 </script>
 
