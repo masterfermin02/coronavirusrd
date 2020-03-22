@@ -14,12 +14,7 @@
           <mdb-card>
             <mdb-card-header>Mapa De Casos</mdb-card-header>
             <mdb-card-body>
-              <GmapMap
-                :center="{lat:10, lng:10}"
-                :zoom="7"
-                style="width: 100%; height: 600px"
-              >
-              </GmapMap>
+              <s-v-g-map />
             </mdb-card-body>
           </mdb-card>
         </mdb-col>
@@ -86,8 +81,9 @@
 </template>
 
 <script>
-import { mdbRow, mdbCol, mdbCard, mdbCardBody, mdbCardHeader, mdbTbl, mdbBarChart, } from 'mdbvue'
+import { mdbRow, mdbCol, mdbCard, mdbCardBody, mdbCardHeader, mdbTbl, mdbBarChart } from 'mdbvue'
 import stats from './stat/stats'
+import SVGMap from './SVGMap'
 
 export default {
   name: 'Dashboard',
@@ -99,7 +95,8 @@ export default {
     mdbCardHeader,
     mdbTbl,
     mdbBarChart,
-      stats
+      stats,
+      SVGMap
   },
   data () {
     return {
