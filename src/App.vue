@@ -20,7 +20,7 @@
             </mdb-list-group-item>
         </router-link>
 
-       <router-link :to="{ name: 'Acerca'}" @click.native="activeItem = 2">
+       <router-link :to="{ name: 'About'}" @click.native="activeItem = 2">
           <mdb-list-group-item
             :action="true"
             :class="activeItem === 2 && 'active'"

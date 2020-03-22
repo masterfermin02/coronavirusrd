@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Dashboard from '@/components/Dashboard'
-import AcercaDe from '@/components/AcercaDe'
+import About from '@/components/About'
 
 
 Vue.use(Router);
@@ -18,8 +18,8 @@ export default new Router({
     },
     {
       path: '/acerca',
-      name: 'Acerca',
-      component: AcercaDe,
+      name: 'About',
+      component: About,
       props: { page: 2 },
     },
     {
