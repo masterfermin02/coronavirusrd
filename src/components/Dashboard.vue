@@ -13,8 +13,8 @@
         <mdb-col lg="12" class="mb-4">
           <mdb-card>
             <mdb-card-header>Mapa De Casos</mdb-card-header>
-            <mdb-card-body>
-              <s-v-g-map />
+            <mdb-card-body  >
+              <s-v-g-map  />
             </mdb-card-body>
           </mdb-card>
         </mdb-col>
