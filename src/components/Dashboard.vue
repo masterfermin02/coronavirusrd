@@ -7,63 +7,7 @@
         </h4>
       </mdb-card-body>
     </mdb-card>
-    <section class="mt-lg-5">
-      <mdb-row>
-        <mdb-col xl="3" md="6" class="mb-r">
-          <mdb-card cascade class="cascading-admin-card">
-            <div class="admin-up">
-              <mdb-icon icon="fas fa-hospital" far class="red"/>
-              <div class="data">
-                <p>INFECTADOS</p>
-                <h4>
-                  <strong>{{countryStat.cases}}</strong>
-                </h4>
-              </div>
-            </div>
-          </mdb-card>
-        </mdb-col>
-        <mdb-col xl="3" md="6" class="mb-r">
-          <mdb-card cascade class="cascading-admin-card">
-            <div class="admin-up">
-              <mdb-icon icon="fas fa-vials" class="warning-color"/>
-              <div class="data">
-                <p>OBSERVACION</p>
-                <h4>
-                  <strong>{{countryStat.observes}}</strong>
-                </h4>
-              </div>
-            </div>
-          </mdb-card>
-        </mdb-col>
-        <mdb-col xl="3" md="6" class="mb-r">
-          <mdb-card cascade class="cascading-admin-card">
-            <div class="admin-up">
-              <mdb-icon icon="fas fa-walking" class="green lighten-1"/>
-              <div class="data">
-                <p>RECUPERADOS</p>
-                <h4>
-                  <strong>{{countryStat.recovereds}}</strong>
-                </h4>
-              </div>
-            </div>
-          </mdb-card>
-        </mdb-col>
-        <mdb-col xl="3" md="6" class="mb-r">
-          <mdb-card cascade class="cascading-admin-card">
-            <div class="admin-up">
-              <mdb-icon icon="fas fa-skull-crossbones" class="black accent-2"/>
-              <div class="data">
-                <p>MUERTES</p>
-                <h4>
-                  <strong>{{countryStat.deaths}}</strong>
-                </h4>
-              </div>
-            </div>
-          </mdb-card>
-        </mdb-col>
-      </mdb-row>
-    </section>
-
+      <stats :country-stat="countryStat" />
     <section>
       <mdb-row>
         <mdb-col lg="12" class="mb-4">
@@ -142,17 +86,8 @@
 </template>
 
 <script>
-import { mdbRow, mdbCol, mdbCard, mdbCardBody, mdbCardHeader, mdbIcon, mdbTbl, mdbBarChart, } from 'mdbvue'
-import DRService from '@/services/DRService'
-
-const CountryStat = (data) => {
-    return {
-        cases: data.cases || 0,
-        observes: data.observes || 0,
-        deaths: data.deaths || 0,
-        recovereds: data.recovereds || 0
-    };
-};
+import { mdbRow, mdbCol, mdbCard, mdbCardBody, mdbCardHeader, mdbTbl, mdbBarChart, } from 'mdbvue'
+import stats from './stat/stats'
 
 export default {
   name: 'Dashboard',
@@ -162,13 +97,12 @@ export default {
     mdbCard,
     mdbCardBody,
     mdbCardHeader,
-    mdbIcon,
     mdbTbl,
     mdbBarChart,
+      stats
   },
   data () {
     return {
-        countryStat: new CountryStat({}),
       showFrameModalTop: false,
       showFrameModalBottom: false,
       showSideModalTopRight: false,
@@ -317,66 +251,11 @@ export default {
         maintainAspectRatio: false
       }
     }
-  },
-    methods: {
-        async loadData() {
-            const stat = await DRService.getStat();
-            const latestCountry = stat.latest_stat_by_country.shift();
-            this.countryStat = new CountryStat({
-                cases: latestCountry.total_cases,
-                deaths: latestCountry.total_deaths,
-                recovereds: latestCountry.total_recovered,
-                observes: latestCountry.total_cases_per1m,
-            });
-        }
-    },
-
-    mounted() {
-        this.loadData();
-    }
+  }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.cascading-admin-card {
-  margin: 20px 0;
-}
-.cascading-admin-card .admin-up {
-  margin-left: 4%;
-  margin-right: 4%;
-  margin-top: -20px;
-}
-.cascading-admin-card .admin-up .fas,
-.cascading-admin-card .admin-up .far {
-  box-shadow: 0 2px 9px 0 rgba(0, 0, 0, 0.2), 0 2px 13px 0 rgba(0, 0, 0, 0.19);
-  padding: 1.7rem;
-  font-size: 2rem;
-  color: #fff;
-  text-align: left;
-  margin-right: 1rem;
-  border-radius: 3px;
-}
-.cascading-admin-card .admin-up .data {
-  float: right;
-  margin-top: 2rem;
-  text-align: right;
-}
-.admin-up .data p {
-  color: #999999;
-  font-size: 12px;
-}
-.classic-admin-card .card-body {
-  color: #fff;
-  margin-bottom: 0;
-  padding: 0.9rem;
-}
-.classic-admin-card .card-body p {
-  font-size: 13px;
-  opacity: 0.7;
-  margin-bottom: 0;
-}
-.classic-admin-card .card-body h4 {
-  margin-top: 10px;
-}
+
 </style>
