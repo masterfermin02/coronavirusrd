@@ -47,7 +47,7 @@
                 });
                 this.cards = [
                     {label: 'INFECTADOS', data: this.countryStat.cases, icon: 'fa-hospital', color: 'red'},
-                    {label: 'OBSERVACION', data: this.countryStat.observes, icon: 'fa-vials',  color: 'fas fas-far warning-color'},
+                    {label: 'OBSERVACION', data: 57, icon: 'fa-vials',  color: 'fas fas-far warning-color'},
                     {label: 'RECUPERADOS', data: this.countryStat.recovereds, icon: 'fa-walking', color: 'fas fas-far green lighten-1'},
                     {label: 'MUERTES', data: this.countryStat.deaths, icon: 'fa-skull-crossbones', color: 'fas fas-far black accent-2'}
                 ];
