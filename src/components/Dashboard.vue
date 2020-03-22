@@ -34,6 +34,7 @@
                                   <th>Provincia</th>
                                   <th>Infectados</th>
                                   <th>Recuperados</th>
+                                  <th>Muertes</th>
                               </tr>
                           </thead>
                           <tbody>
@@ -41,7 +42,8 @@
                                   <th scope="row">{{ i + 1}}</th>
                                   <td>{{ province.title }}</td>
                                   <td>{{ province.cases }}</td>
-                                  <td>0</td>
+                                  <td>{{ province.recovereds }}</td>
+                                  <td>{{ province.deaths }}</td>
                               </tr>
                           </tbody>
                       </mdb-tbl>
@@ -73,7 +75,7 @@ export default {
   },
     methods: {
       getProvinces() {
-          this.provinces = provincePath.gets();
+          this.provinces = provincePath.getWithCases();
       }
     },
     mounted() {
