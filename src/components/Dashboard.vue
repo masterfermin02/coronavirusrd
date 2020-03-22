@@ -37,23 +37,11 @@
                               </tr>
                           </thead>
                           <tbody>
-                              <tr>
-                                  <th scope="row">1</th>
-                                  <td>Cell 1</td>
-                                  <td>Cell 2</td>
-                                  <td>Cell 3</td>
-                              </tr>
-                              <tr>
-                                  <th scope="row">2</th>
-                                  <td>Cell 4</td>
-                                  <td>Cell 5</td>
-                                  <td>Cell 6</td>
-                              </tr>
-                              <tr>
-                                  <th scope="row">3</th>
-                                  <td>Cell 7</td>
-                                  <td>Cell 8</td>
-                                  <td>Cell 9</td>
+                              <tr v-for="(province, i) in provinces" :key="i" >
+                                  <th scope="row">{{ i + 1}}</th>
+                                  <td>{{ province.title }}</td>
+                                  <td>{{ province.cases }}</td>
+                                  <td>0</td>
                               </tr>
                           </tbody>
                       </mdb-tbl>
@@ -84,6 +72,7 @@
 import { mdbRow, mdbCol, mdbCard, mdbCardBody, mdbCardHeader, mdbTbl, mdbBarChart } from 'mdbvue'
 import stats from './stat/stats'
 import SVGMap from './SVGMap'
+import provincePath from '@/services/provincePath';
 
 export default {
   name: 'Dashboard',
@@ -98,6 +87,14 @@ export default {
       stats,
       SVGMap
   },
+    methods: {
+      getProvinces() {
+          this.provinces = provincePath.gets();
+      }
+    },
+    mounted() {
+      this.getProvinces();
+    },
   data () {
     return {
       showFrameModalTop: false,
@@ -114,6 +111,7 @@ export default {
       showFluidModalLeft: false,
       showFluidModalTop: false,
       showFluidModalBottom: false,
+        provinces: [],
       barChartData: {
         labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
         datasets: [
