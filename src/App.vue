@@ -1,5 +1,23 @@
 <template>
   <div class="flexible-content">
+     <!--Navbar-->
+    <mdb-navbar class="flexible-navbar white" light position="top" scrolling>
+      <mdb-navbar-brand to="/"
+        >COVID19-RD</mdb-navbar-brand
+      >
+      <mdb-navbar-toggler>
+        <mdb-navbar-nav left>
+          <mdb-nav-item to="/" waves-fixed @click.native="active = 1"
+            >Inicio</mdb-nav-item
+          >
+          <mdb-nav-item :to="{ name: 'About'}" @click.native="activeItem = 2"
+            waves-fixed
+            >Acerca</mdb-nav-item
+          >
+        </mdb-navbar-nav>
+      </mdb-navbar-toggler>
+    </mdb-navbar>
+    <!--/.Navbar-->
     <!-- Sidebar -->
     <div class="sidebar-fixed position-fixed">
       <a class="logo-wrapper"
@@ -66,6 +84,11 @@
 
 <script>
 import {
+  mdbNavbar,
+  mdbNavbarBrand,
+  mdbNavItem,
+  mdbNavbarNav,
+  mdbNavbarToggler,
   mdbBtn,
   mdbIcon,
   mdbListGroup,
@@ -77,6 +100,11 @@ import {
 export default {
   name: "AdminTemplate",
   components: {
+     mdbNavbar,
+    mdbNavbarBrand,
+    mdbNavItem,
+    mdbNavbarNav,
+    mdbNavbarToggler,
     mdbBtn,
     mdbListGroup,
     mdbListGroupItem,
