@@ -17,6 +17,7 @@
               :id="province.id"
               @mouseover="mouseOver(province)"
               @mouseleave="mouseLeave(province)"
+              @click="pathClick(province)"
               class="mapsvg-region"
               :style="getStyle(province)">
         </path>
@@ -35,7 +36,7 @@
         </div>
         <div class="mapsvg-btn-map mapsvg-btn-location"></div>
     </div>
-                    <div class="mapsvg-tooltip mapsvg-tt-bottom-right" v-if="currentProvince" v-bind:style="{left: mouseX + 'px', top: mouseY + 'px'}" style="position:absolute;min-width: 100px; left: 374px; top: 313px;"><!-- Region fields are available in this template -->
+                    <div class="mapsvg-tooltip mapsvg-tt-bottom-right" v-if="currentProvince.title" v-bind:style="{left: mouseX + 'px', top: mouseY + 'px'}" style="position:absolute;min-width: 100px; left: 374px; top: 313px;"><!-- Region fields are available in this template -->
                         {{currentProvince.title}} - infectados: {{ currentProvince.cases }}
                     </div>
                 </div>
@@ -62,7 +63,7 @@
                 mouseY: 0,
                 mouseOffSetX: 400,
                 mouseOffSety: 300,
-                currentProvince: null
+                currentProvince: {}
             }
         },
         methods: {
@@ -82,7 +83,10 @@
             },
             mouseLeave(province) {
                 province.hover = false;
-                this.currentProvince = null;
+                this.currentProvince = {};
+            },
+            pathClick(province) {
+                this.$emit('onPathClick', province);
             }
         },
 
