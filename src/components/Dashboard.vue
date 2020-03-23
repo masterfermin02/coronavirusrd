@@ -27,7 +27,7 @@
               <mdb-card>
                   <mdb-card-header>Detalle por provincias</mdb-card-header>
                   <mdb-card-body>
-                      <mdb-tbl hover>
+                      <mdb-tbl responsive hover>
                           <thead class="blue lighten-4">
                               <tr>
                                   <th>#</th>
