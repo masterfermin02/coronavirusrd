@@ -68,7 +68,7 @@
         },
         methods: {
             loadPaths() {
-                this.provinces = provincePath.gets();
+                provincePath.getFromFisebase( provinces => this.provinces = provinces)
             },
             getStyle(province) {
                 return !province.hover ? province.style : province.styleFilled

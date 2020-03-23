@@ -75,7 +75,7 @@ export default {
   },
     methods: {
       getProvinces() {
-         this.provinces = provincePath.getWithCases();
+          provincePath.getFromFisebase(provinces => this.provinces = provinces);
       },
       provinceClick(province) {
           this.currentProvince = province;

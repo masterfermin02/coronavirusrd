@@ -25,12 +25,12 @@ const settings = {
 db.settings(settings)
 
 // firebase collections
-const investigation = database.ref('/invetigation:')
-const provincesCollection = db.collection('provinces')
+const investigation = database.ref('invetigation/')
+const provinces = database.ref('provinces/')
 
 export {
     db,
     auth,
-    provincesCollection,
+    provinces,
     investigation
 }
