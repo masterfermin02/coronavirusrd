@@ -41,8 +41,8 @@
     .cascading-admin-card .admin-up .fas,
     .cascading-admin-card .admin-up .far {
         box-shadow: 0 2px 9px 0 rgba(0, 0, 0, 0.2), 0 2px 13px 0 rgba(0, 0, 0, 0.19);
-        padding: 1.7rem;
-        font-size: 2rem;
+        padding: 1rem;
+        font-size: 1.45rem;
         color: #fff;
         text-align: left;
         margin-right: 1rem;
