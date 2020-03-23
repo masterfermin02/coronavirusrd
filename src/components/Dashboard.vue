@@ -12,9 +12,9 @@
       <mdb-row>
         <mdb-col lg="12" class="mb-4">
           <mdb-card>
-            <mdb-card-header>Mapa De Casos</mdb-card-header>
+            <mdb-card-header>Mapa De Casos <span v-show="currentProvince.title"> - {{currentProvince.title}} - infectados: {{ currentProvince.cases }}</span> </mdb-card-header>
             <mdb-card-body  >
-              <s-v-g-map  />
+              <s-v-g-map @onPathClick="provinceClick" />
             </mdb-card-body>
           </mdb-card>
         </mdb-col>
@@ -76,6 +76,9 @@ export default {
     methods: {
       getProvinces() {
           this.provinces = provincePath.getWithCases();
+      },
+      provinceClick(province) {
+          this.currentProvince = province;
       }
     },
     mounted() {
@@ -84,6 +87,7 @@ export default {
   data () {
     return {
       provinces: [],
+      currentProvince: {}
     }
   }
 }
