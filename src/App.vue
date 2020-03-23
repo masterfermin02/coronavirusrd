@@ -54,20 +54,22 @@
         <router-view></router-view>
       </div>
       <ftr color="primary-color-dark" class="text-center font-small darken-2">
+        
         <div class="pt-4">
+          <p>Este es un proyecto Open Source y sin fines de lucro, puedes colaborar aqui:</p>
           <mdb-btn
             outline="white"
             tag="a"
             href="https://mdbootstrap.com/docs/vue/getting-started/download/"
             target="_blank"
-            >Template <mdb-icon icon="download" class="ml-2"
+            >Repositorio <mdb-icon fab icon="github" class="ml-2"
           /></mdb-btn>
           <mdb-btn
             outline="white"
             tag="a"
             href="https://rapidapi.com/astsiatsko/api/coronavirus-monitor"
             target="_blank"
-            >API <mdb-icon icon="download" class="ml-2"
+            >Pizarra <mdb-icon icon="chalkboard" class="ml-2"
           /></mdb-btn>
         </div>
         <hr>
