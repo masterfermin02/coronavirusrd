@@ -14,6 +14,10 @@
             waves-fixed
             >Acerca</mdb-nav-item
           >
+          <mdb-nav-item :to="{ name: 'Feedbacks'}" @click.native="activeItem = 3"
+            waves-fixed
+            >Sugerencias</mdb-nav-item
+          >
         </mdb-navbar-nav>
       </mdb-navbar-toggler>
     </mdb-navbar>
@@ -43,6 +47,14 @@
             :action="true"
             :class="activeItem === 2 && 'active'"
             ><mdb-icon icon="user" class="mr-3" />Acerca</mdb-list-group-item
+          >
+        </router-link>
+
+        <router-link :to="{ name: 'Feedbacks'}" @click.native="activeItem = 3">
+          <mdb-list-group-item
+            :action="true"
+            :class="activeItem === 3 && 'active'"
+            ><mdb-icon icon="fa fa-comments" class="mr-3" />Sugerencias</mdb-list-group-item
           >
         </router-link>
 
