@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import Dashboard from '@/components/Dashboard'
 import About from '@/components/About'
 import BadGateway from '@/components/BadGateway'
+import Feedback from '@/components/Feedbacks'
 
 
 Vue.use(Router);
@@ -22,6 +23,12 @@ export default new Router({
       name: 'About',
       component: About,
       props: { page: 2 },
+    },
+    {
+      path: '/sugerencias',
+      name: 'Feedbacks',
+      component: Feedback,
+      props: { page: 3 },
     },
     {
       path: '/404',
