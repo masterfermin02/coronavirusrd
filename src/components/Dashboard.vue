@@ -3,7 +3,7 @@
     <mdb-card class="mb-4">
       <mdb-card-body class="d-sm-flex justify-content-between">
         <h4 class="mb-sm-0 pt-2">
-          Situacion Actual Coronavirus en REP DOM.
+          Estado actual  del Coronavirus en REP DOM.
         </h4>
       </mdb-card-body>
     </mdb-card>
