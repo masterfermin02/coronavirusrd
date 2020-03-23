@@ -10,6 +10,7 @@
     import statCard from './statCard'
     import { mdbRow } from 'mdbvue'
     import DRService from '@/services/DRService'
+    const fb = require('@/firebaseConfig.js')
 
     const CountryStat = (data) => {
         return {
@@ -39,18 +40,22 @@
             async loadData() {
                 const stat = await DRService.getStat();
                 const latestCountry = stat.latest_stat_by_country.shift();
+                let self = this;
                 this.countryStat = new CountryStat({
                     cases: latestCountry.total_cases,
                     deaths: latestCountry.total_deaths,
                     recovereds: latestCountry.total_recovered,
                     observes: latestCountry.total_cases_per1m,
                 });
-                this.cards = [
-                    {label: 'INFECTADOS', data: this.countryStat.cases, icon: 'fa-hospital', color: 'red'},
-                    {label: 'INVESTIGACION', data: 270, icon: 'fa-vials',  color: 'fas fas-far warning-color'},
-                    {label: 'RECUPERADOS', data: this.countryStat.recovereds, icon: 'fa-walking', color: 'fas fas-far green lighten-1'},
-                    {label: 'MUERTES', data: this.countryStat.deaths, icon: 'fa-skull-crossbones', color: 'fas fas-far black accent-2'}
-                ];
+                fb.investigation.on('value', function(snapshot) {
+                    var value = snapshot.val() || 0
+                    self.cards = [
+                        {label: 'INFECTADOS', data: self.countryStat.cases, icon: 'fa-hospital', color: 'red'},
+                        {label: 'INVESTIGACION', data: value, icon: 'fa-vials',  color: 'fas fas-far warning-color'},
+                        {label: 'RECUPERADOS', data: self.countryStat.recovereds, icon: 'fa-walking', color: 'fas fas-far green lighten-1'},
+                        {label: 'MUERTES', data: self.countryStat.deaths, icon: 'fa-skull-crossbones', color: 'fas fas-far black accent-2'}
+                    ];
+                })
             }
         },
 

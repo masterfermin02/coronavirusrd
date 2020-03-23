@@ -75,7 +75,7 @@ export default {
   },
     methods: {
       getProvinces() {
-          this.provinces = provincePath.getWithCases();
+         this.provinces = provincePath.getWithCases();
       },
       provinceClick(province) {
           this.currentProvince = province;
