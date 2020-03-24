@@ -16,18 +16,11 @@ const defaultData = {
     style: "fill: rgb(224, 101, 101); stroke: rgb(247, 247, 247); stroke-width: 1.29247px;"
 };
 
-let paths;
-
 export default {
 
     getFromFisebase(cb) {
-        if(paths) {
-           cb(paths);
-           return;
-        }
         fb.provinces.on('value', (snapshot) => {
-            paths = mapPath(snapshot.val() || [], defaultData);
-            cb(paths);
+            cb(mapPath(snapshot.val() || [], defaultData));
         });
     }
 }
