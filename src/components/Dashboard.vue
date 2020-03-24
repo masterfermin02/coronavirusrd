@@ -37,8 +37,8 @@
                                   <th>Muertes</th>
                               </tr>
                           </thead>
-                          <tbody>
-                              <tr v-for="(province, i) in provinces" :key="i" >
+                          <tbody v-if="provincesWithCases.length">
+                              <tr v-for="(province, i) in provincesWithCases" :key="i" >
                                   <th scope="row">{{ i + 1}}</th>
                                   <td>{{ province.title }}</td>
                                   <td>{{ province.cases }}</td>
@@ -59,36 +59,36 @@
 import { mdbRow, mdbCol, mdbCard, mdbCardBody, mdbCardHeader, mdbTbl } from 'mdbvue'
 import stats from './stat/stats'
 import SVGMap from './SVGMap'
-import provincePath from '@/services/provincePath';
+import { mapState }  from 'vuex'
 
 export default {
-  name: 'Dashboard',
-  components: {
-    mdbRow,
-    mdbCol,
-    mdbCard,
-    mdbCardBody,
-    mdbCardHeader,
-    mdbTbl,
-    stats,
-    SVGMap
-  },
+
+    name: 'Dashboard',
+    components: {
+        mdbRow,
+        mdbCol,
+        mdbCard,
+        mdbCardBody,
+        mdbCardHeader,
+        mdbTbl,
+        stats,
+        SVGMap
+    },
+    computed: {
+      ...mapState(['provinces']),
+        provincesWithCases() {
+          return this.provinces.filter(province => province.cases > 0)
+        }
+    },
     methods: {
-      getProvinces() {
-          provincePath.getFromFisebase(provinces => this.provinces = provinces);
-      },
       provinceClick(province) {
           this.currentProvince = province;
       }
     },
-    mounted() {
-      this.getProvinces();
-    },
-  data () {
-    return {
-      provinces: [],
-      currentProvince: {}
-    }
+    data () {
+        return {
+            currentProvince: {}
+        }
   }
 }
 </script>

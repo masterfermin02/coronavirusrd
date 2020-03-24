@@ -12,20 +12,20 @@ export default new Router({
   mode: 'history',
   routes: [
     {
-      path: '/dashboard',
+      path: '/',
       name: 'Dashboard',
       component: Dashboard,
       props: { page: 1 },
       alias: '/'
     },
     {
-      path: '/acerca',
+      path: '/#acerca',
       name: 'About',
       component: About,
       props: { page: 2 },
     },
     {
-      path: '/sugerencias',
+      path: '/#sugerencias',
       name: 'Feedbacks',
       component: Feedback,
       props: { page: 3 },

@@ -29,7 +29,7 @@
       /></a>
       <mdb-list-group class="list-group-flush">
 
-        <router-link to="/dashboard" @click.native="activeItem = 1">
+        <router-link to="/" @click.native="activeItem = 1">
           <mdb-list-group-item
             :action="true"
             :class="activeItem === 1 && 'active'"
@@ -66,7 +66,7 @@
         <router-view></router-view>
       </div>
       <ftr color="primary-color-dark" class="text-center font-small darken-2">
-        
+
         <div class="pt-4">
           <p>Este es un proyecto Open Source y sin fines de lucro, puedes colaborar aqui:</p>
           <mdb-btn
@@ -86,9 +86,9 @@
         </div>
         <hr>
         <p class="footer-copyright mb-0 py-3 text-center">
-        
-         Creadores: 
-          <a href="https://github.com/masterfermin02"> Fermin Perdomo </a> y 
+
+         Creadores:
+          <a href="https://github.com/masterfermin02"> Fermin Perdomo </a> y
           <a href="https://github.com/aneudyx"> Aneudy Caceres </a>
         </p>
       </ftr>

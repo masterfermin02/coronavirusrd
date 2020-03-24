@@ -50,13 +50,12 @@
 </template>
 
 <script>
-    import provincePath from '@/services/provincePath';
+    import { mapState }  from 'vuex'
 
     export default {
         name: "SVGMap",
         data() {
             return {
-                provinces: [],
                 showToolTip: false,
                 SVGmouseTip: null,
                 mouseX: 0,
@@ -66,10 +65,10 @@
                 currentProvince: {}
             }
         },
+        computed: {
+            ...mapState(['provinces'])
+        },
         methods: {
-            loadPaths() {
-                provincePath.getFromFisebase( provinces => this.provinces = provinces)
-            },
             getStyle(province) {
                 return !province.hover ? province.style : province.styleFilled
             },
@@ -91,7 +90,6 @@
         },
 
         mounted() {
-            this.loadPaths();
             const svg = document.querySelector("#map-svg");
             svg.addEventListener('mousemove',this.mouseIsMoving);
         }
