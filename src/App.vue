@@ -19,6 +19,14 @@
             >Sugerencias</mdb-nav-item
           >
         </mdb-navbar-nav>
+        <mdb-navbar-nav right>
+          <mdb-nav-item href="https://www.instagram.com/covidrd/" waves-fixed
+            ><mdb-icon fab class="text-black" icon="instagram"
+          /></mdb-nav-item>
+          <mdb-nav-item href="https://twitter.com/coronavirusrd4" waves-fixed
+            ><mdb-icon fab icon="twitter"
+          /></mdb-nav-item>
+        </mdb-navbar-nav>
       </mdb-navbar-toggler>
     </mdb-navbar>
     <!--/.Navbar-->
