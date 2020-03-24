@@ -72,14 +72,14 @@
           <mdb-btn
             outline="white"
             tag="a"
-            href="https://mdbootstrap.com/docs/vue/getting-started/download/"
+            href="https://github.com/masterfermin02/coronavirusrd"
             target="_blank"
             >Repositorio <mdb-icon fab icon="github" class="ml-2"
           /></mdb-btn>
           <mdb-btn
             outline="white"
             tag="a"
-            href="https://rapidapi.com/astsiatsko/api/coronavirus-monitor"
+            href="https://trello.com/b/57BtTWlZ"
             target="_blank"
             >Pizarra <mdb-icon icon="chalkboard" class="ml-2"
           /></mdb-btn>
