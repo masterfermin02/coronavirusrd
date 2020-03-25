@@ -1,7 +1,13 @@
 <template>
     <section class="mt-lg-5">
         <mdb-row>
-            <stat-card v-for="card in cards" :key="card.label" :label="card.label" :data="card.data" :icon="card.icon" :color="card.color" ></stat-card>
+            <stat-card v-for="card in cards"
+                       :key="card.label"
+                       :label="card.label"
+                       :data="card.data"
+                       :icon="card.icon"
+                       :last-update="provincesStat.lastUpdate"
+                       :color="card.color" ></stat-card>
         </mdb-row>
     </section>
 </template>

@@ -8,6 +8,7 @@
                     <h4>
                         <strong>{{data}}</strong>
                     </h4>
+                    <spa>{{ lastUpdate }}</spa>
                 </div>
             </div>
         </mdb-card>
@@ -19,7 +20,7 @@
 
     export default {
         name: "statCard",
-        props: ['label', 'data',  'color', 'icon'],
+        props: ['label', 'data', 'lastUpdate',  'color', 'icon'],
         components: {
             mdbCol,
             mdbCard,
