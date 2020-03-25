@@ -3,7 +3,7 @@
         <mdb-row>
             <mdb-col lg="12" class="mb-4">
                 <mdb-card>
-                    <mdb-card-header>Graficos</mdb-card-header>
+                    <mdb-card-header>Contagiados por Genero</mdb-card-header>
                     <mdb-card-body  >
                         <mdb-container>
                             <mdb-pie-chart
@@ -40,7 +40,7 @@
             ...mapState(['provincesStat']),
             pieChartData() {
                 return {
-                    labels: ["Home", "Mujer"],
+                    labels: ["Hombres", "Mujeres"],
                     datasets: [
                         {
                             data: [ parseInt(this.provincesStat.male), parseInt(this.provincesStat.female)],
