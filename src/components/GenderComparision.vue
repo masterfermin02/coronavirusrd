@@ -43,7 +43,7 @@
                     labels: ["Home", "Mujer"],
                     datasets: [
                         {
-                            data: [ this.provincesStat.male, this.provincesStat.female],
+                            data: [ parseInt(this.provincesStat.male), parseInt(this.provincesStat.female)],
                             backgroundColor: [
                                 "#46BFBD",
                                 "#FDB45C"
