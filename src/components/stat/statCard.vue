@@ -8,7 +8,7 @@
                     <h4>
                         <strong>{{data}}</strong>
                     </h4>
-                    <spa>{{ lastUpdate }}</spa>
+                    <p class="blockquote-footer mb-3">{{ lastUpdate }}</p>
                 </div>
             </div>
         </mdb-card>

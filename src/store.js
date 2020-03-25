@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import provincePath from './services/provincePath.js'
-import moment from 'moment'
 
 Vue.use(Vuex)
 
@@ -26,8 +25,6 @@ export const store = new Vuex.Store({
       state.provinces = val
     },
     setProvincesStat(state, val) {
-      moment.locale('es-do')
-      val['lastUpdate'] = moment(val.lastUpdate).startOf('hour').fromNow()
       state.provincesStat = val
     }
   },
