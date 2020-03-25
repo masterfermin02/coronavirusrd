@@ -22,5 +22,9 @@ export default {
         fb.provinces.on('value', (snapshot) => {
             cb(mapPath(snapshot.val() || [], defaultData));
         });
+    },
+
+    getProvincesStat(cb) {
+        fb.provincesStat.on('value', snapshot => cb(snapshot.val()))
     }
 }

@@ -16,12 +16,12 @@ const settings = {
 db.settings(settings)
 
 // firebase collections
-const investigation = database.ref('invetigation/')
+const provincesStat = database.ref('provincesStat/')
 const provinces = database.ref('provinces/')
 
 export {
     db,
     auth,
     provinces,
-    investigation
+    provincesStat
 }

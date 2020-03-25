@@ -7,7 +7,7 @@
         </h4>
       </mdb-card-body>
     </mdb-card>
-      <stats  />
+      <stats />
     <section>
       <mdb-row>
         <mdb-col lg="12" class="mb-4">
