@@ -1,16 +1,16 @@
 <template>
     <section>
         <mdb-row>
-            <mdb-col lg="6" class="mb-4">
+            <mdb-col lg="12" class="mb-4">
                 <mdb-card>
-                    <mdb-card-header>Contagiados por Genero</mdb-card-header>
+                    <mdb-card-header>Graficos</mdb-card-header>
                     <mdb-card-body  >
                         <mdb-container>
                             <mdb-pie-chart
                                     datalabels
                                     :data="pieChartData"
                                     :options="pieChartOptions"
-                                    :width="600"
+                                    :width="300"
                                     :height="300"
                             />
                         </mdb-container>
