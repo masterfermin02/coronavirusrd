@@ -21,6 +21,23 @@
       </mdb-row>
     </section>
 
+    <section>
+      <mdb-row>
+        <mdb-col md="12" class="mb-4">
+          <mdb-card reverse>
+            <mdb-card-body class="text-center" cascade>
+              <mdb-card-title><strong>Siguenos!</strong></mdb-card-title>
+              <mdb-card-text>Mantente al tanto de nuevas informaciones, boletines y notificaciones en nuestras redes sociales.</mdb-card-text>
+              <a class="px-2 fa-lg li-ic" target="_blank" href="https://www.instagram.com/covidrd/">
+                <mdb-icon fab icon="instagram"/></a>
+              <a class="px-2 fa-lg tw-ic" target="_blank" href="https://twitter.com/coronavirusrd4">
+                <mdb-icon fab icon="twitter"/></a>
+            </mdb-card-body>
+          </mdb-card>
+        </mdb-col>
+      </mdb-row>
+    </section>
+
      <section>
       <mdb-row>
           <mdb-col md="12" class="mb-4">
@@ -58,7 +75,7 @@
 </template>
 
 <script>
-import { mdbRow, mdbCol, mdbCard, mdbCardBody, mdbCardHeader, mdbTbl } from 'mdbvue'
+import { mdbRow, mdbCol, mdbCard, mdbCardBody, mdbCardHeader, mdbTbl, mdbCardTitle, mdbCardText, mdbIcon } from 'mdbvue'
 import stats from './stat/stats'
 import SVGMap from './SVGMap'
 import GenderComparision from './GenderComparision'
@@ -74,7 +91,10 @@ export default {
         mdbRow,
         mdbCol,
         mdbCard,
+        mdbCardTitle,
+        mdbCardText,
         mdbCardBody,
+        mdbIcon,
         mdbCardHeader,
         mdbTbl,
         stats,

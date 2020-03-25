@@ -20,12 +20,21 @@
           >
         </mdb-navbar-nav>
         <mdb-navbar-nav right>
-          <mdb-nav-item href="https://www.instagram.com/covidrd/" waves-fixed
-            ><mdb-icon fab class="text-black" icon="instagram"
-          /></mdb-nav-item>
-          <mdb-nav-item href="https://twitter.com/coronavirusrd4" waves-fixed
-            ><mdb-icon fab icon="twitter"
-          /></mdb-nav-item>
+          <mdb-nav-item>Siguenos:</mdb-nav-item>
+          <mdb-nav-item
+            href="https://www.instagram.com/covidrd/"
+            waves-fixed
+            class="border border-light rounded mr-1"
+            target="_blank"
+            ><mdb-icon fab icon="instagram" class="mr-2" />Instagram
+          </mdb-nav-item>
+          <mdb-nav-item
+            href="https://twitter.com/coronavirusrd4"
+            waves-fixed
+            class="border border-light rounded"
+            target="_blank"
+            ><mdb-icon fab icon="twitter" class="mr-2" />Twitter
+          </mdb-nav-item>
         </mdb-navbar-nav>
       </mdb-navbar-toggler>
     </mdb-navbar>
