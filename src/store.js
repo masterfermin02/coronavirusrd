@@ -6,7 +6,9 @@ import moment from 'moment'
 Vue.use(Vuex)
 
 provincePath.getFromFisebase(provinces => store.commit('setProvinces', provinces))
-provincePath.getProvincesStat( provincesStat => store.commit('setProvincesStat', provincesStat))
+provincePath.getProvincesStat( provincesStat => {
+  store.commit('setProvincesStat', provincesStat)
+})
 
 export const store = new Vuex.Store({
   state: {
@@ -31,6 +33,7 @@ export const store = new Vuex.Store({
   },
 
   actions: {
+
   }
 
 })

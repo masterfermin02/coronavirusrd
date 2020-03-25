@@ -53,6 +53,7 @@
           </mdb-col>
       </mdb-row>
     </section>
+      <gender-comparision />
   </section>
 </template>
 
@@ -60,6 +61,7 @@
 import { mdbRow, mdbCol, mdbCard, mdbCardBody, mdbCardHeader, mdbTbl } from 'mdbvue'
 import stats from './stat/stats'
 import SVGMap from './SVGMap'
+import GenderComparision from './GenderComparision'
 import { mapState }  from 'vuex'
 const filter = require('@/filters/provinces')
 const { pipeline } = require('@/tools/functional')
@@ -76,7 +78,8 @@ export default {
         mdbCardHeader,
         mdbTbl,
         stats,
-        SVGMap
+        SVGMap,
+        GenderComparision
     },
     computed: {
       ...mapState(['provinces']),
