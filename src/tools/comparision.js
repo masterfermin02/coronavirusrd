@@ -2,9 +2,9 @@ import {getWith, useWith, sortBy} from "./functional";
 
 const functional = require('./functional')
 
-const greaterThanOrEqual = (a, b) => a >= b
-const greaterThan = (a, b) => a > b
-const lessThan = (a, b) => a < b
+const greaterThanOrEqual = (a, b) => parseInt(a) >= parseInt(b)
+const greaterThan = (a, b) => parseInt(a) > parseInt(b)
+const lessThan = (a, b) => parseInt(a) > parseInt(b)
 
 // Right curried so we can create useful unary predicates
 export const greaterThanOrEqualTo = functional.rightCurry(greaterThanOrEqual);
