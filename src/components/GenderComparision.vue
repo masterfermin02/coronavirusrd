@@ -10,7 +10,7 @@
                                     datalabels
                                     :data="pieChartData"
                                     :options="pieChartOptions"
-                                    :width="300"
+                                    :width="200"
                                     :height="300"
                             />
                         </mdb-container>
