@@ -4,6 +4,7 @@ import Dashboard from '@/components/Dashboard'
 import About from '@/components/About'
 import BadGateway from '@/components/BadGateway'
 import Feedback from '@/components/Feedbacks'
+import Collaborators from '@/components/Collaborators'
 
 
 Vue.use(Router);
@@ -29,6 +30,13 @@ export default new Router({
       name: 'Feedbacks',
       component: Feedback,
       props: { page: 3 },
+    },
+    
+    {
+      path: '/#colaboradores',
+      name: 'Collaborators',
+      component: Collaborators,
+      props: { page: 4 },
     },
     {
       path: '/404',

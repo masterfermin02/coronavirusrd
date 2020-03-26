@@ -69,6 +69,14 @@
           >
         </router-link>
 
+        <router-link :to="{ name: 'Collaborators'}" @click.native="activeItem = 4">
+          <mdb-list-group-item
+            :action="true"
+            :class="activeItem === 4 && 'active'"
+            ><mdb-icon icon="user-friends" class="mr-3" />Colaboradores</mdb-list-group-item
+          >
+        </router-link>
+
       </mdb-list-group>
     </div>
     <!-- /Sidebar  -->
@@ -125,7 +133,7 @@ import {
 export default {
   name: "AdminTemplate",
   components: {
-     mdbNavbar,
+    mdbNavbar,
     mdbNavbarBrand,
     mdbNavItem,
     mdbNavbarNav,
