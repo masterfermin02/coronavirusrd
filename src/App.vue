@@ -18,6 +18,10 @@
             waves-fixed
             >Sugerencias</mdb-nav-item
           >
+          <mdb-nav-item :to="{ name: 'Collaborators'}" @click.native="activeItem = 4"
+            waves-fixed
+            >Colaboradores</mdb-nav-item
+          >
         </mdb-navbar-nav>
         <mdb-navbar-nav right>
           <mdb-nav-item>Siguenos:</mdb-nav-item>
@@ -66,6 +70,14 @@
             :action="true"
             :class="activeItem === 3 && 'active'"
             ><mdb-icon icon="fa fa-comments" class="mr-3" />Sugerencias</mdb-list-group-item
+          >
+        </router-link>
+
+        <router-link :to="{ name: 'Collaborators'}" @click.native="activeItem = 4">
+          <mdb-list-group-item
+            :action="true"
+            :class="activeItem === 4 && 'active'"
+            ><mdb-icon icon="user-friends" class="mr-3" />Colaboradores</mdb-list-group-item
           >
         </router-link>
 
@@ -125,7 +137,7 @@ import {
 export default {
   name: "AdminTemplate",
   components: {
-     mdbNavbar,
+    mdbNavbar,
     mdbNavbarBrand,
     mdbNavItem,
     mdbNavbarNav,
