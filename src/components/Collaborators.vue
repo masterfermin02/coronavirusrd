@@ -33,7 +33,7 @@
                   </div>
                   <h5 class="font-weight-bold mt-4 mb-3">Aneudy Caceres</h5>
                   <p class="text-uppercase blue-text">Project/Product Management</p>
-                  <p class="grey-text">Scrum Master certificado con 10 a&ntilde;s en proyectos de software, nos da soporte en el area de Product Management y Programacion.</p>
+                  <p class="grey-text">Scrum Master certificado con 10 a&ntilde;os en proyectos de software, nos da soporte en el area de Product Management y Programacion.</p>
                   <ul class="list-unstyled mb-0">
                     <a class="p-2 fa-lg" href="https://www.linkedin.com/in/aneudy-caceres-62776315/" target="_blank">
                       <mdb-icon fab icon="linkedin" class="blue-text"/>

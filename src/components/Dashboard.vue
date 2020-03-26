@@ -72,6 +72,20 @@
     </section>
       <evolutionary-cases-by-day />
 
+      <section>
+          <mdb-row>
+              <mdb-col md="12" class="mb-4">
+                  <mdb-card reverse>
+                      <mdb-card-header>Edad mediana de fallecidos</mdb-card-header>
+                      <mdb-card-body class="text-center" cascade>
+                          <mdb-card-title><strong>65</strong> a&ntilde;os</mdb-card-title>
+                          <mdb-card-text>Rango: 41 a 84</mdb-card-text>
+                      </mdb-card-body>
+                  </mdb-card>
+              </mdb-col>
+          </mdb-row>
+      </section>
+
       <gender-comparision />
 
       <new-cases-by-day />
