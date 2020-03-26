@@ -3,7 +3,7 @@
         <mdb-row>
             <mdb-col lg="12" class="mb-4">
                 <mdb-card>
-                    <mdb-card-header>Evolucion De Casos</mdb-card-header>
+                    <mdb-card-header>Nuevo Casos por Dia</mdb-card-header>
                     <mdb-card-body  >
                         <mdb-container>
                             <mdb-line-chart
@@ -42,6 +42,8 @@
             return {
                 lineChartData: {
                     labels: [
+                        "28/02/2020",
+                        "29/02/2020",
                         "1/03/20",
                         "4/03/2020",
                         "5/03/2020",
@@ -53,7 +55,6 @@
                         "12/03/2020",
                         "13/03/2020",
                         "15/03/2020",
-                        "16/03/2020",
                         "17/03/2020",
                         "18/03/2020",
                         "19/03/2020",
@@ -66,25 +67,25 @@
                     ],
                         datasets: [
                         {
-                            label: "Infectados",
+                            label: "Importado",
                             backgroundColor: "rgba(255, 99, 132, 0.1)",
                             borderColor: "rgba(255, 99, 132, 1)",
                             borderWidth: 0.7,
-                            data: [1,1,1,2,2,5,5,5,5,5,11,12,21,34,72,112,202,245, 312, 392, 488]
+                            data: [2,1,2,3,2,1,2,2,5,5,6,0,0,25,0,40]
                         },
                         {
-                            label: "Muertes",
+                            label: "Investigacion",
                             backgroundColor: "rgba(151,187,205,0.2)",
                             borderColor: "rgba(151,187,205,1)",
                             borderWidth: 0.8,
-                            data: [0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,3,3,3,6,10,10]
+                            data: [0,0,0,0,0,1,1,0,1,1,1,0,0,10,5,35]
                         },
                         {
-                            label: "Recuperados",
+                            label: "Local",
                             backgroundColor: "rgba(127, 249, 216, 0.4)",
                             borderColor: "rgba(127, 249, 216, 1)",
                             borderWidth: 0.8,
-                            data: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,3,3]
+                            data: [0,0,0,0,0,0,0,0,0,0,0,2,1,35,0,45,60,90,50,70,80,96]
                         }
                     ]
                 },

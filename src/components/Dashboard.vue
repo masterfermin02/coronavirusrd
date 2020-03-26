@@ -73,6 +73,8 @@
       <evolutionary-cases-by-day />
 
       <gender-comparision />
+
+      <new-cases-by-day />
   </section>
 </template>
 
@@ -91,6 +93,7 @@ import stats from './stat/stats'
 import SVGMap from './SVGMap'
 import GenderComparision from './GenderComparision'
 import EvolutionaryCasesByDay from './EvolutionaryCasesByDay'
+import NewCasesByDay from './NewCasesByDay'
 import { mapState }  from 'vuex'
 const filter = require('@/filters/provinces')
 const { pipeline } = require('@/tools/functional')
@@ -112,7 +115,9 @@ export default {
         stats,
         SVGMap,
         GenderComparision,
-        EvolutionaryCasesByDay
+        EvolutionaryCasesByDay,
+        NewCasesByDay
+
     },
     computed: {
       ...mapState(['provinces']),
