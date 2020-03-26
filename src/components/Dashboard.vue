@@ -70,15 +70,27 @@
           </mdb-col>
       </mdb-row>
     </section>
+      <evolutionary-cases-by-day />
+
       <gender-comparision />
   </section>
 </template>
 
 <script>
-import { mdbRow, mdbCol, mdbCard, mdbCardBody, mdbCardHeader, mdbTbl, mdbCardTitle, mdbCardText, mdbIcon } from 'mdbvue'
+import { mdbRow,
+    mdbCol,
+    mdbCard,
+    mdbCardBody,
+    mdbCardHeader,
+    mdbTbl,
+    mdbCardTitle,
+    mdbCardText,
+    mdbIcon
+} from 'mdbvue'
 import stats from './stat/stats'
 import SVGMap from './SVGMap'
 import GenderComparision from './GenderComparision'
+import EvolutionaryCasesByDay from './EvolutionaryCasesByDay'
 import { mapState }  from 'vuex'
 const filter = require('@/filters/provinces')
 const { pipeline } = require('@/tools/functional')
@@ -99,7 +111,8 @@ export default {
         mdbTbl,
         stats,
         SVGMap,
-        GenderComparision
+        GenderComparision,
+        EvolutionaryCasesByDay
     },
     computed: {
       ...mapState(['provinces']),
