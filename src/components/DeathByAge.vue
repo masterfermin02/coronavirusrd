@@ -3,15 +3,15 @@
         <mdb-row>
             <mdb-col lg="12" class="mb-4">
                 <mdb-card>
-                    <mdb-card-header>Contagiados por Genero</mdb-card-header>
+                    <mdb-card-header>{{ provincesStat.deathByAge.title }}</mdb-card-header>
                     <mdb-card-body  >
                         <mdb-container>
                             <mdb-pie-chart
                                     datalabels
                                     :data="pieChartData"
                                     :options="pieChartOptions"
-                                    :width="600"
-                                    :height="400"
+                                    :width="200"
+                                    :height="300"
                             />
                         </mdb-container>
                     </mdb-card-body>
@@ -26,7 +26,7 @@
     import { mapState }  from 'vuex'
 
     export default {
-        name: "GenderComparision",
+        name: "DeathByAge",
         components: {
             mdbRow,
             mdbCol,
@@ -43,15 +43,9 @@
                     labels: ["Hombres", "Mujeres"],
                     datasets: [
                         {
-                            data: [ parseInt(this.provincesStat.male), parseInt(this.provincesStat.female)],
-                            backgroundColor: [
-                                "#46BFBD",
-                                "#FDB45C"
-                            ],
-                            hoverBackgroundColor: [
-                                "#5AD3D1",
-                                "#FFC870"
-                            ]
+                            data: provincesStat.deathByAge.data.map( data => parseInt(data)),
+                            backgroundColor: provincesStat.deathByAge.colors,
+                            hoverBackgroundColor: provincesStat.deathByAge.hoverColors
                         }
                     ]
                 }
@@ -60,7 +54,7 @@
         data() {
             return {
                 pieChartOptions: {
-                    responsive: true,
+                    responsive: false,
                     maintainAspectRatio: false,
                     plugins: {
                         datalabels: {
