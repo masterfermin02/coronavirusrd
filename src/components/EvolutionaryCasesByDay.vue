@@ -89,7 +89,7 @@
                     ]
                 },
                 lineChartOptions: {
-                    responsive: false,
+                    responsive: true,
                         maintainAspectRatio: false,
                         scales: {
                         xAxes: [
