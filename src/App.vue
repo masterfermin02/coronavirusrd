@@ -18,6 +18,10 @@
             waves-fixed
             >Sugerencias</mdb-nav-item
           >
+          <mdb-nav-item :to="{ name: 'Collaborators'}" @click.native="activeItem = 4"
+            waves-fixed
+            >Colaboradores</mdb-nav-item
+          >
         </mdb-navbar-nav>
         <mdb-navbar-nav right>
           <mdb-nav-item>Siguenos:</mdb-nav-item>
