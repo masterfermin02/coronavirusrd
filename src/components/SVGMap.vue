@@ -112,6 +112,7 @@
         transition: opacity .16s ease-out;
         pointer-events: none;
         text-align: left;
+        z-index: 1;
     }
     .map-leyenda {
 
