@@ -14,7 +14,7 @@
           <mdb-card>
             <mdb-card-header>Mapa De Casos <span v-show="currentProvince.title"> - {{currentProvince.title}} - infectados: {{ currentProvince.cases }}</span> </mdb-card-header>
             <mdb-card-body  >
-              <s-v-g-map @onPathClick="provinceClick" />
+              <s-v-g-map />
             </mdb-card-body>
           </mdb-card>
         </mdb-col>
@@ -112,9 +112,6 @@ export default {
         }
     },
     methods: {
-      provinceClick(province) {
-          this.currentProvince = province;
-      },
       sort(colunm) {
           this.column = colunm
           this.direction = !this.direction;
