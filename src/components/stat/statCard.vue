@@ -8,15 +8,17 @@
                     <h4>
                         <strong>{{data}}</strong>
                     </h4>
-                    <p class="blockquote-footer mb-3">{{ lastUpdate }}</p>
                 </div>
             </div>
+            <mdb-card-body>
+                <p class="blockquote-footer text-right mb-3">{{ lastUpdate }}</p>
+            </mdb-card-body>
         </mdb-card>
     </mdb-col>
 </template>
 
 <script>
-    import { mdbCol, mdbCard,  mdbIcon } from 'mdbvue'
+    import { mdbCol, mdbCard, mdbCardBody,  mdbIcon } from 'mdbvue'
 
     export default {
         name: "statCard",
@@ -24,7 +26,8 @@
         components: {
             mdbCol,
             mdbCard,
-            mdbIcon
+            mdbIcon,
+            mdbCardBody
         }
     }
 </script>
