@@ -31,7 +31,7 @@
           </li>
           <li  class="border border-light rounded mr-1 nav-item ripple-parent" >
             <a href="https://twitter.com/coronavirusrd4" class="nav-link navbar-link" target="_blank" >
-              <!----><i class="mr-2 fab fa-twitter text-" ></i>Instagram </a>
+              <!----><i class="mr-2 fab fa-twitter text-" ></i>Twitter </a>
           </li>
         </mdb-navbar-nav>
       </mdb-navbar-toggler>
