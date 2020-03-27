@@ -3,7 +3,7 @@
         <mdb-row>
             <mdb-col lg="12" class="mb-4">
                 <mdb-card>
-                    <mdb-card-header>Casos confirmados por dia</mdb-card-header>
+                    <mdb-card-header>Casos confirmados por d&iacute;a</mdb-card-header>
                     <mdb-card-body  >
                         <mdb-container>
                             <mdb-bar-chart

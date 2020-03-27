@@ -3,7 +3,7 @@
         <mdb-row>
             <mdb-col lg="12" class="mb-4">
                 <mdb-card>
-                    <mdb-card-header>Contagiados por Genero</mdb-card-header>
+                    <mdb-card-header>Contagiados por G&eacute;nero</mdb-card-header>
                     <mdb-card-body  >
                         <mdb-container>
                             <mdb-pie-chart

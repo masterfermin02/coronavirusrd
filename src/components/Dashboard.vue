@@ -26,7 +26,7 @@
         <mdb-col md="12" class="mb-4">
           <mdb-card reverse>
             <mdb-card-body class="text-center" cascade>
-              <mdb-card-title><strong>Siguenos!</strong></mdb-card-title>
+              <mdb-card-title><strong>S&iacute;guenos!</strong></mdb-card-title>
               <mdb-card-text>Mantente al tanto de nuevas informaciones, boletines y notificaciones en nuestras redes sociales.</mdb-card-text>
               <a class="px-2 fa-lg li-ic" target="_blank" href="https://www.instagram.com/covidrd/">
                 <mdb-icon fab icon="instagram"/></a>
@@ -76,7 +76,7 @@
           <mdb-row>
               <mdb-col md="12" class="mb-4">
                   <mdb-card reverse>
-                      <mdb-card-header>Edad mediana de fallecidos</mdb-card-header>
+                      <mdb-card-header>Edad media de fallecidos</mdb-card-header>
                       <mdb-card-body class="text-center" cascade>
                           <mdb-card-title><strong>65</strong> a&ntilde;os</mdb-card-title>
                           <mdb-card-text>Rango: 41 a 84</mdb-card-text>

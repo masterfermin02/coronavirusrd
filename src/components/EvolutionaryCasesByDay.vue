@@ -3,7 +3,7 @@
         <mdb-row>
             <mdb-col lg="12" class="mb-4">
                 <mdb-card>
-                    <mdb-card-header>Evolucion De Casos</mdb-card-header>
+                    <mdb-card-header>Evoluci&oacute;n De Casos</mdb-card-header>
                     <mdb-card-body  >
                         <mdb-container>
                             <mdb-line-chart
