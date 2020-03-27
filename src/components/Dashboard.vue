@@ -12,7 +12,7 @@
       <mdb-row>
         <mdb-col lg="12" class="mb-4">
           <mdb-card>
-            <mdb-card-header>Mapa De Casos <span v-show="currentProvince.title"> - {{currentProvince.title}} - infectados: {{ currentProvince.cases }}</span> </mdb-card-header>
+            <mdb-card-header>Mapa De Casos </mdb-card-header>
             <mdb-card-body  >
               <s-v-g-map />
             </mdb-card-body>
@@ -56,8 +56,8 @@
                                   <th><i @click="sort('deaths')" class="fas fa-sort float-right"></i> Muertes</th>
                               </tr>
                           </thead>
-                          <tbody v-if="provincesWithCases.length">
-                              <tr v-for="(province, i) in provincesWithCases" :key="i" >
+                          <tbody v-if="provinces.length">
+                              <tr v-for="(province, i) in provinces" :key="i" >
                                   <th scope="row">{{ i + 1}}</th>
                                   <td>{{ province.title }}</td>
                                   <td>{{ province.cases }}</td>
@@ -70,6 +70,29 @@
           </mdb-col>
       </mdb-row>
     </section>
+
+      <section>
+          <mdb-row>
+              <mdb-col md="12" class="mb-4">
+                  <mdb-card reverse>
+                      <mdb-card-body class="text-center" cascade>
+                          <mdb-card-title><strong>Compartir!</strong></mdb-card-title>
+                          <mdb-card-text>Comparte esta informacion con t&uacute;s amigos.</mdb-card-text>
+                          <a class="px-2 fa-lg tw-ic" href="https://facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcoronavirus-rd.com" target="_blank" rel="noopener" aria-label="">
+                              <mdb-icon fab icon="facebook"/>
+                          </a>
+                          <a class="px-2 fa-lg tw-ic" target="_blank" href="https://twitter.com/intent/tweet/?text=Esta aplicacion busca llevar a sus usuarios informacion resumida y actualizada por el ministerio de Salud Publica sobre la propagacion del virus COVID-19&amp;url=https%3A%2F%2Fcoronavirus-rd.com">
+                              <mdb-icon fab icon="twitter"/>
+                          </a>
+                          <a class="px-2 fa-lg green-ic" target="_blank" href="https://wa.me/?text=Esta aplicacion busca llevar a sus usuarios informacion resumida y actualizada por el ministerio de Salud Publica sobre la propagacion del virus COVID-19 https%3A%2F%2Fcoronavirus-rd.com" >
+                              <mdb-icon fab icon="whatsapp"/>
+                          </a>
+                      </mdb-card-body>
+                  </mdb-card>
+              </mdb-col>
+          </mdb-row>
+      </section>
+
       <evolutionary-cases-by-day />
 
       <section>
@@ -108,10 +131,7 @@ import SVGMap from './SVGMap'
 import GenderComparision from './GenderComparision'
 import EvolutionaryCasesByDay from './EvolutionaryCasesByDay'
 import NewCasesByDay from './NewCasesByDay'
-import { mapState }  from 'vuex'
-const filter = require('@/filters/provinces')
-const { pipeline } = require('@/tools/functional')
-const { descending, asscending, sortByColumn } = require('@/tools/comparision')
+import {descending, asscending} from "@/tools/comparision";
 
 export default {
 
@@ -134,24 +154,21 @@ export default {
 
     },
     computed: {
-      ...mapState(['provinces']),
-        provincesWithCases() {
-          let direction = this.direction ? descending : asscending;
-          return pipeline(
-              sortByColumn(this.column, direction),
-              filter.filterPositiveCase
-          )(this.provinces)
+        provinces() {
+          return this.$store.getters.provincesSortByColumn(
+              this.column,
+              this.direction ? descending : asscending
+          )
         }
     },
     methods: {
-      sort(colunm) {
-          this.column = colunm
+      sort(column) {
           this.direction = !this.direction;
+          this.column = column
       }
     },
     data () {
         return {
-            currentProvince: {},
             column: 'cases',
             direction: true
         }

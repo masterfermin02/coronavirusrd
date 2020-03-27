@@ -83,9 +83,29 @@
 
       </mdb-list-group>
     </div>
+    <div class="mobile-sidebar-fixed position-fixed">
+      <mdb-list-group class="list-group-flush">
+          <li  class="list-group-item d-flex justify-content-between align-items-center list-group-item-action tw-ic">
+            <a target="_blank" href="https://facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcoronavirus-rd.com" >
+              <mdb-icon fab icon="facebook"/>
+            </a>
+          </li>
+        <li  class="list-group-item d-flex justify-content-between align-items-center list-group-item-action tw-ic">
+          <a target="_blank" href="https://twitter.com/intent/tweet/?text=Esta aplicacion busca llevar a sus usuarios informacion resumida y actualizada por el ministerio de Salud Publica sobre la propagacion del virus COVID-19&amp;url=https%3A%2F%2Fcoronavirus-rd.com" >
+            <mdb-icon fab icon="twitter"/>
+          </a>
+          </li>
+         <li  class="list-group-item d-flex justify-content-between align-items-center list-group-item-action c">
+           <a target="_blank" class="green-ic" href="https://wa.me/?text=Esta aplicacion busca llevar a sus usuarios informacion resumida y actualizada por el ministerio de Salud Publica sobre la propagacion del virus COVID-19 https%3A%2F%2Fcoronavirus-rd.com" >
+            <mdb-icon fab icon="whatsapp "/>
+           </a>
+          </li>
+      </mdb-list-group>
+    </div>
     <!-- /Sidebar  -->
     <main>
-      <div class="mt-5 p-5">
+
+      <div id="main-content" class="mt-5 p-5">
         <router-view></router-view>
       </div>
       <ftr color="primary-color-dark" class="text-center font-small darken-2">
@@ -201,15 +221,32 @@ main {
   padding: 1.5rem;
 }
 
-.sidebar-fixed .list-group-item {
+.sidebar-fixed .list-group-item, .mobile-sidebar-fixed .list-group-item {
   display: block !important;
   transition: background-color 0.3s;
 }
 
-.sidebar-fixed .list-group .active {
+.mobile-sidebar-fixed .list-group-item {
+  padding-left: 12px;
+}
+
+.sidebar-fixed .list-group .active, .mobile-sidebar-fixed .list-group .active {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   border-radius: 5px;
 }
+
+.mobile-sidebar-fixed {
+  left: 0;
+  width: 40px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  z-index: 1050;
+  background-color: #fff;
+  top: 96px;
+  display: none;
+
+}
+
+
 
 @media (max-width: 1199.98px) {
   .sidebar-fixed {
@@ -221,5 +258,14 @@ main {
   .flexible-navbar {
     padding-left: 10px;
   }
+  .mobile-sidebar-fixed {
+    display: block !important;
+    transition: display 0.3s;
+  }
+  #main-content {
+    padding-right: 0.75rem !important;
+    padding-left: 3.25rem !important;
+  }
 }
+
 </style>
