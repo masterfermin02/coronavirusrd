@@ -239,7 +239,6 @@ main {
   left: 0;
   width: 40px;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-  z-index: 1050;
   background-color: #fff;
   top: 96px;
   display: none;
