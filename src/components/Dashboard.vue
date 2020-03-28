@@ -101,8 +101,8 @@
                   <mdb-card reverse>
                       <mdb-card-header>Edad media de fallecidos</mdb-card-header>
                       <mdb-card-body class="text-center" cascade>
-                          <mdb-card-title><strong>65</strong> a&ntilde;os</mdb-card-title>
-                          <mdb-card-text>Rango: 41 a 84</mdb-card-text>
+                          <mdb-card-title><strong>61</strong> a&ntilde;os</mdb-card-title>
+                          <mdb-card-text>Rango: 41 a 88</mdb-card-text>
                       </mdb-card-body>
                   </mdb-card>
               </mdb-col>
