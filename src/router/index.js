@@ -1,13 +1,13 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Dashboard from '@/components/Dashboard'
-import About from '@/components/About'
-import BadGateway from '@/components/BadGateway'
-import Feedback from '@/components/Feedbacks'
 import Collaborators from '@/components/Collaborators'
 
-
 Vue.use(Router);
+
+const About = () => import('@/components/About')
+const Feedback = () => import('@/components/Feedbacks')
+const BadGateway = () => import('@/components/BadGateway')
 
 export default new Router({
   mode: 'history',
@@ -31,7 +31,7 @@ export default new Router({
       component: Feedback,
       props: { page: 3 },
     },
-    
+
     {
       path: '/#colaboradores',
       name: 'Collaborators',

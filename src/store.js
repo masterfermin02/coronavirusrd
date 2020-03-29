@@ -1,15 +1,13 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import provinceService from './services/provinceService.js'
 import { filterPositiveCase } from './filters/provinces'
 import { sortByColumn } from "./tools/comparision";
+import firebaseSocketPlugin from './firebaseSocketPlugin'
+import provinceService from '@/services/provinceService'
 
 Vue.use(Vuex)
 
-provinceService.getFromFisebase(provinces => store.commit('setProvinces', provinces))
-provinceService.getProvincesStat( provincesStat => {
-  store.commit('setProvincesStat', provincesStat)
-})
+const firebaseStore = firebaseSocketPlugin()
 
 export const store = new Vuex.Store({
   state: {
@@ -21,7 +19,8 @@ export const store = new Vuex.Store({
       recoverers: 0
     },
     provinceSortColumn: 'cases',
-    provinceSortColumnDirection: true
+    provinceSortColumnDirection: true,
+    collaborators: []
   },
 
   getters: {
@@ -39,9 +38,23 @@ export const store = new Vuex.Store({
     },
     setProvincesStat(state, val) {
       state.provincesStat = val
+    },
+    setCollaborators(state, val) {
+      const collaboratorWithoutPicture = val.filter( item => !item.pictureUrl)
+      collaboratorWithoutPicture.forEach( item => store.dispatch('downLoadColaboratorImage', item))
+      state.collaborators = val
+    },
+    setCollaboratorPictureUrlById(state, val) {
+      state.collaborators.find(item => item.id === val.id).pictureUrl = val.url
     }
   },
 
-  actions: {}
+  actions: {
+    downLoadColaboratorImage ({commit}, val) {
+      provinceService.getCollaboratorImage(val, collaborator => commit('setCollaboratorPictureUrlById',collaborator))
+    }
+  },
+
+  plugins: [firebaseStore]
 
 })
