@@ -40,7 +40,6 @@ export default {
                 id: collaborator.id,
                 url: url
             })
-        })
-        .catch(err => console.log(err));
+        });
     }
 }
