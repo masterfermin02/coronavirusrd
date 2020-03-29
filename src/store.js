@@ -16,7 +16,8 @@ export const store = new Vuex.Store({
       cases: 0,
       investigations: 0,
       deaths: 0,
-      recoverers: 0
+      recoverers: 0,
+      stats: []
     },
     provinceSortColumn: 'cases',
     provinceSortColumnDirection: true,
@@ -29,6 +30,28 @@ export const store = new Vuex.Store({
     },
     provincesSortByColumn: (state, getters) => (column, direction) => {
       return sortByColumn(column, direction)(getters.provincesPositiveCases)
+    },
+    positiCaseByDateChartData(state) {
+      const results = state.provincesStat.stats.reduce( (result, stat) => {
+          result.labels.push(stat.date)
+          result.data.push(stat.infects)
+        return result
+      }, {
+        labels: [],
+        data: []
+      })
+      return {
+        labels: results.labels,
+        datasets: [
+          {
+            label: "Infectados",
+            backgroundColor:  "rgba(127, 249, 216, 0.4)",
+            borderColor: "rgba(127, 249, 216, 1)",
+            borderWidth: 0.8,
+            data: results.data
+          }
+        ]
+      }
     }
   },
 
