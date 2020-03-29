@@ -7,7 +7,7 @@
                     <mdb-card-body  >
                         <mdb-container>
                             <mdb-line-chart
-                                    :data="lineChartData"
+                                    :data="positiveTotalCaseByDate"
                                     :options="lineChartOptions"
                                     :width="600"
                                     :height="400"
@@ -22,7 +22,7 @@
 
 <script>
     import { mdbRow, mdbCol, mdbCard, mdbCardHeader, mdbCardBody, mdbLineChart, mdbContainer } from "mdbvue";
-    import { mapState }  from 'vuex'
+    import { mapState, mapGetters }  from 'vuex'
 
     export default {
         name: "NewCasesByDay",
@@ -36,60 +36,11 @@
             mdbContainer
         },
         computed: {
-            ...mapState(['provincesStat'])
+            ...mapState(['provincesStat']),
+            ...mapGetters(['positiveTotalCaseByDate'])
         },
         data() {
             return {
-                lineChartData: {
-                    labels: [
-                        "1/03/20",
-                        "4/03/2020",
-                        "5/03/2020",
-                        "6/03/2020",
-                        "8/03/2020",
-                        "9/03/2020",
-                        "10/03/2020",
-                        "11/03/2020",
-                        "12/03/2020",
-                        "13/03/2020",
-                        "15/03/2020",
-                        "16/03/2020",
-                        "17/03/2020",
-                        "18/03/2020",
-                        "19/03/2020",
-                        "20/03/2020",
-                        "21/03/2020",
-                        "22/03/2020",
-                        "23/03/2020",
-                        "24/03/2020",
-                        "25/03/2020",
-                        "26/03/2020",
-                        "27/03/2020",
-                    ],
-                        datasets: [
-                        {
-                            label: "Infectados",
-                            backgroundColor: "rgba(255, 99, 132, 0.1)",
-                            borderColor: "rgba(255, 99, 132, 1)",
-                            borderWidth: 0.7,
-                            data: [1,1,1,2,2,5,5,5,5,5,11,12,21,34,72,112,202,245, 312, 392, 488, 581, 719]
-                        },
-                        {
-                            label: "Muertes",
-                            backgroundColor: "rgba(151,187,205,0.2)",
-                            borderColor: "rgba(151,187,205,1)",
-                            borderWidth: 0.8,
-                            data: [0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,3,3,3,6,10,10,20,28]
-                        },
-                        {
-                            label: "Recuperados",
-                            backgroundColor: "rgba(127, 249, 216, 0.4)",
-                            borderColor: "rgba(127, 249, 216, 1)",
-                            borderWidth: 0.8,
-                            data: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,3,3,3,3]
-                        }
-                    ]
-                },
                 lineChartOptions: {
                     responsive: true,
                         maintainAspectRatio: false,

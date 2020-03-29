@@ -52,6 +52,57 @@ export const store = new Vuex.Store({
           }
         ]
       }
+    },
+    positiveTotalCaseByDate(state) {
+      const results = state.provincesStat.stats.reduce( (result, stat, currentIndex) => {
+        result.labels.push(stat.date)
+
+        if(currentIndex > 0) {
+          let prevIndex = currentIndex - 1
+          result.data.infects.push(  result.data.infects[prevIndex] + parseInt(stat.infects))
+          result.data.deaths.push( result.data.deaths[prevIndex] + parseInt(stat.deaths))
+          result.data.recoverers.push( result.data.recoverers[prevIndex] + parseInt(stat.recoverers))
+        } else {
+          result.data.infects[currentIndex] = parseInt(stat.infects)
+          result.data.deaths[currentIndex] = parseInt(stat.deaths)
+          result.data.recoverers[currentIndex] = parseInt(stat.recoverers)
+        }
+
+        return result
+      }, {
+        labels: [],
+        data: {
+          infects: [],
+          deaths: [],
+          recoverers: []
+        }
+      })
+      return {
+        labels: results.labels,
+        datasets: [
+          {
+            label: "Infectados",
+            backgroundColor: "rgba(255, 99, 132, 0.1)",
+            borderColor: "rgba(255, 99, 132, 1)",
+            borderWidth: 0.7,
+            data: results.data.infects
+          },
+          {
+            label: "Muertes",
+            backgroundColor: "rgba(151,187,205,0.2)",
+            borderColor: "rgba(151,187,205,1)",
+            borderWidth: 0.8,
+            data: results.data.deaths
+          },
+          {
+            label: "Recuperados",
+            backgroundColor: "rgba(127, 249, 216, 0.4)",
+            borderColor: "rgba(127, 249, 216, 1)",
+            borderWidth: 0.8,
+            data: results.data.recoverers
+          }
+        ]
+      }
     }
   },
 
