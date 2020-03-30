@@ -23,3 +23,6 @@ git commit -m 'deploy'
 git push -f git@github.com:masterfermin02/coronavirusrd.git master:gh-pages
 
 cd -
+
+# remove dist folder after install
+rm -r dist
