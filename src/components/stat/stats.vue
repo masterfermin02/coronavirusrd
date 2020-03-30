@@ -26,7 +26,7 @@
             cards() {
                 return [
                     {label: 'INFECTADOS', data: this.provincesStat.cases, icon: 'fa-hospital', color: 'red'},
-                    {label: 'INVESTIGACION', data: this.provincesStat.investigations, icon: 'fa-vials',  color: 'fas fas-far warning-color'},
+                    {label: 'DESCARTADOS', data: this.provincesStat.discarted, icon: 'fa-vials',  color: 'fas fas-far warning-color'},
                     {label: 'RECUPERADOS', data: this.provincesStat.recoverers, icon: 'fa-walking', color: 'fas fas-far green lighten-1'},
                     {label: 'MUERTES', data: this.provincesStat.deaths, icon: 'fa-skull-crossbones', color: 'fas fas-far black accent-2'}
                 ]
