@@ -3,11 +3,11 @@
         <mdb-row>
             <mdb-col lg="12" class="mb-4">
                 <mdb-card>
-                    <mdb-card-header>Evoluci&oacute;n De Casos</mdb-card-header>
+                    <mdb-card-header>Evoluci&oacute;n De Recuperados</mdb-card-header>
                     <mdb-card-body  >
                         <mdb-container>
                             <mdb-line-chart
-                                    :data="positiveTotalCaseByDate"
+                                    :data="recoverersChartData"
                                     :options="lineChartOptions"
                                     :width="600"
                                     :height="400"
@@ -25,7 +25,7 @@
     import { mapState, mapGetters }  from 'vuex'
 
     export default {
-        name: "NewCasesByDay",
+        name: "EvolutionaryRecoverersByDay",
         components: {
             mdbRow,
             mdbCol,
@@ -37,7 +37,7 @@
         },
         computed: {
             ...mapState(['provincesStat']),
-            ...mapGetters(['positiveTotalCaseByDate'])
+            ...mapGetters(['recoverersChartData'])
         },
         data() {
             return {

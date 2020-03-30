@@ -54,7 +54,7 @@ export const store = new Vuex.Store({
       }
     },
     positiveTotalCaseByDate(state) {
-      const results = state.provincesStat.stats.reduce( (result, stat, currentIndex) => {
+      return  state.provincesStat.stats.reduce( (result, stat, currentIndex) => {
         result.labels.push(stat.date)
 
         if(currentIndex > 0) {
@@ -77,6 +77,9 @@ export const store = new Vuex.Store({
           recoverers: []
         }
       })
+    },
+    infectsChartData: (state, getters) => {
+      const results = getters.positiveTotalCaseByDate
       return {
         labels: results.labels,
         datasets: [
@@ -86,14 +89,30 @@ export const store = new Vuex.Store({
             borderColor: "rgba(255, 99, 132, 1)",
             borderWidth: 0.7,
             data: results.data.infects
-          },
+          }
+        ]
+      }
+    },
+    deathsChartData: (state, getters) => {
+      const results = getters.positiveTotalCaseByDate
+      return {
+        labels: results.labels,
+        datasets: [
           {
             label: "Muertes",
             backgroundColor: "rgba(151,187,205,0.2)",
             borderColor: "rgba(151,187,205,1)",
             borderWidth: 0.8,
             data: results.data.deaths
-          },
+          }
+        ]
+      }
+    },
+    recoverersChartData: (state, getters) => {
+      const results = getters.positiveTotalCaseByDate
+      return {
+        labels: results.labels,
+        datasets: [
           {
             label: "Recuperados",
             backgroundColor: "rgba(127, 249, 216, 0.4)",

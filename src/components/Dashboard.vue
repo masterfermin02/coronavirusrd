@@ -93,7 +93,9 @@
           </mdb-row>
       </section>
 
-      <evolutionary-cases-by-day />
+      <evolutionary-infects-by-day />
+      <evolutionary-deaths-by-day />
+      <evolutionary-recoverers-by-day />
 
       <section>
           <mdb-row>
@@ -129,7 +131,9 @@ import { mdbRow,
 import stats from './stat/stats'
 import SVGMap from './SVGMap'
 import GenderComparision from './GenderComparision'
-import EvolutionaryCasesByDay from './EvolutionaryCasesByDay'
+import EvolutionaryInfectsByDay from './EvolutionaryInfectsByDay'
+import EvolutionaryDeathsByDay from './EvolutionaryDeathsByDay'
+import EvolutionaryRecoverersByDay from './EvolutionaryRecoverersByDay'
 import NewCasesByDay from './NewCasesByDay'
 import {descending, asscending} from "@/tools/comparision";
 import { mapState }  from 'vuex'
@@ -150,7 +154,9 @@ export default {
         stats,
         SVGMap,
         GenderComparision,
-        EvolutionaryCasesByDay,
+        EvolutionaryInfectsByDay,
+        EvolutionaryRecoverersByDay,
+        EvolutionaryDeathsByDay,
         NewCasesByDay
 
     },
