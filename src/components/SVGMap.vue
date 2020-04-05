@@ -25,13 +25,13 @@
                 <li class="list-group-item" >
                     <div class="d-flex flex-row">
                         <div class="p-2"><div class="zone-cases" ></div></div>
-                        <div class="p-2">Zonas con hallazgos de contagios</div>
+                        <div class="p-2">Zonas con m&aacute;s contagios</div>
                     </div>
                 </li>
                 <li class="list-group-item" >
                     <div class="d-flex flex-row">
                         <div class="p-2"><div class="zone-clean" ></div></div>
-                        <div class="p-2">Zonas sin contagios</div>
+                        <div class="p-2">Zonas con menos contagios</div>
                     </div>
                 </li>
             </ul>
@@ -118,13 +118,13 @@
 
     }
     .zone-cases {
-        background-color: rgb(224, 101, 101);
+        background-color: #E06565;
         width: 25px;
         height: 25px;
     }
 
     .zone-clean {
-        background-color: rgb(102, 187, 106);
+        background-color: rgb(253, 245, 246);
         width: 25px;
         height: 25px;
     }

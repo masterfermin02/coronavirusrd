@@ -9,6 +9,20 @@ Vue.use(Vuex)
 
 const firebaseStore = firebaseSocketPlugin()
 
+const mapPath = (paths, total) => {
+  return paths.map((path, index) => {
+    path['id'] = "DO-" + (index + 1);
+    path['style'] = `fill: rgb(224, 101, 101, ${(path.cases / total.cases) * 100}); stroke: rgba(123, 111, 111, 0.87); stroke-width: 1.29247px;`;
+    path['styleFilled'] = defaultData.styleFilled;
+    path['hover'] = false;
+    return path;
+  });
+};
+
+const defaultData = {
+  styleFilled: "fill: rgb(239, 177, 177, 1); stroke: rgb(247, 247, 247); stroke-width: 1.29247px;"
+};
+
 export const store = new Vuex.Store({
   state: {
     provinces: [],
@@ -26,7 +40,7 @@ export const store = new Vuex.Store({
 
   getters: {
     provincesPositiveCases: (state) => {
-      return filterPositiveCase(state.provinces)
+      return filterPositiveCase(mapPath(state.provinces, state.provincesStat))
     },
     provincesSortByColumn: (state, getters) => (column, direction) => {
       return sortByColumn(column, direction)(getters.provincesPositiveCases)
