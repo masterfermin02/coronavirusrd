@@ -31,6 +31,7 @@ export const store = new Vuex.Store({
       investigations: 0,
       deaths: 0,
       recoverers: 0,
+      discarted: 0,
       stats: []
     },
     provinceSortColumn: 'cases',
