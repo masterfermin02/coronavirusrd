@@ -1,0 +1,33 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "EliteDaMyth",
+      "name": "EliteDaMyth",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/4625540?s=460&u=95fee6a27a7ba27b993883be4c43991e019871d4&v=4",
+      "profile": "https://github.com/masterfermin02",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+          "login": "aneudyx",
+          "name": "aneudyx",
+          "avatar_url": "https://avatars0.githubusercontent.com/u/23561071?s=400&v=4",
+          "profile": "https://github.com/aneudyx",
+          "contributions": [
+            "code"
+          ]
+        }
+  ],
+  "contributorsPerLine": 2,
+  "projectName": "coronavirusrd",
+  "projectOwner": "masterfermin02",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
