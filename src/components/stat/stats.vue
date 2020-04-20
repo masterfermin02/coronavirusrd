@@ -16,6 +16,7 @@
     import statCard from './statCard'
     import { mdbRow } from 'mdbvue'
     import { mapState }  from 'vuex'
+    import { convertToPresentationalNumber } from '../../tools/parses'
 
     export default {
         name: "stats",
@@ -25,10 +26,10 @@
 
             cards() {
                 return [
-                    {label: 'INFECTADOS', data: this.provincesStat.cases, icon: 'fa-hospital', color: 'red'},
-                    {label: 'DESCARTADOS', data: this.provincesStat.discarted, icon: 'fa-vials',  color: 'fas fas-far warning-color'},
-                    {label: 'RECUPERADOS', data: this.provincesStat.recoverers, icon: 'fa-walking', color: 'fas fas-far green lighten-1'},
-                    {label: 'MUERTES', data: this.provincesStat.deaths, icon: 'fa-skull-crossbones', color: 'fas fas-far black accent-2'}
+                    {label: 'INFECTADOS', data: convertToPresentationalNumber(this.provincesStat.cases), icon: 'fa-hospital', color: 'red'},
+                    {label: 'DESCARTADOS', data: convertToPresentationalNumber(this.provincesStat.discarted), icon: 'fa-vials',  color: 'fas fas-far warning-color'},
+                    {label: 'RECUPERADOS', data: convertToPresentationalNumber(this.provincesStat.recoverers), icon: 'fa-walking', color: 'fas fas-far green lighten-1'},
+                    {label: 'MUERTES', data: convertToPresentationalNumber(this.provincesStat.deaths), icon: 'fa-skull-crossbones', color: 'fas fas-far black accent-2'}
                 ]
             }
         },
