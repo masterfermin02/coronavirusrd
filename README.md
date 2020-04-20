@@ -5,18 +5,32 @@
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/masterfermin02/coronavirusrd?style=for-the-badge)
 ![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/masterfermin02/coronavirusrd?style=for-the-badge)
 
-# Corona virus RD
+# Corona Virus RD
 
 ## Installation
 npm install
 
 #### Project
-1. Fork and clone git repository
-2. In ./src project folder, create a new file called `firebaseEnv.js`
-3. Copy contents for `firebaseEnvTemplate.js` to new `firebaseEnv.js` file
-4. Replace replace with your firebase config.
-5. From root of project, run `npm start`
-6. In your browser, go to `localhost:{port}` to test your local changes
+1. Fork and clone git repository.
+2. Copy contents for `firebaseEnvTemplate.js` to new `firebaseEnv.js` file
+```bash
+>$ cd src && cp firebaseEnvTemplate.js firebaseEnv.js 
+``` 
+3. Use the following firebase config for development
+```JSON
+{
+    apiKey: "AIzaSyC75e2MJpejR3w2s5F173oUBks6D6UMMV4",
+    authDomain: "coronavirus-rd-dev.firebaseapp.com",
+    databaseURL: "https://coronavirus-rd-dev.firebaseio.com",
+    projectId: "coronavirus-rd-dev",
+    storageBucket: "coronavirus-rd-dev.appspot.com",
+    messagingSenderId: "116223129618",
+    appId: "1:116223129618:web:6ea052c525b2ae7f8500cb",
+    measurementId: "G-XW1JWP29G4"
+}
+```
+4. From root of project, run `npm start`
+5. In your browser, go to `localhost:8080` to test your local changes
 
 #### serve with hot reload at localhost:8080
 `npm run dev`
@@ -28,12 +42,10 @@ npm install
 `npm run build --report`
 
 ### Sources:
-- theme use on this porject: [theme](https://mdbootstrap.com/docs/vue/)
+- The theme use in this project: [theme](https://mdbootstrap.com/docs/vue/)
 
 ## Contributors ✨
-
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
-
+Thank goes to these wonderful peoples ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
