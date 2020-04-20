@@ -69,18 +69,18 @@ export const store = new Vuex.Store({
       }
     },
     positiveTotalCaseByDate(state) {
-      return  state.provincesStat.stats.reduce( (result, stat, currentIndex) => {
+      return state.provincesStat.stats.reduce( (result, stat, currentIndex) => {
         result.labels.push(stat.date)
 
         if(currentIndex > 0) {
           let prevIndex = currentIndex - 1
-          result.data.infects.push(  result.data.infects[prevIndex] + parseInt(stat.infects))
-          result.data.deaths.push( result.data.deaths[prevIndex] + parseInt(stat.deaths))
-          result.data.recoverers.push( result.data.recoverers[prevIndex] + parseInt(stat.recoverers))
+          result.data.infects.push(  result.data.infects[prevIndex] + parseInt(stat.infects, 10))
+          result.data.deaths.push( result.data.deaths[prevIndex] + parseInt(stat.deaths, 10))
+          result.data.recoverers.push( result.data.recoverers[prevIndex] + parseInt(stat.recoverers, 10))
         } else {
-          result.data.infects[currentIndex] = parseInt(stat.infects)
-          result.data.deaths[currentIndex] = parseInt(stat.deaths)
-          result.data.recoverers[currentIndex] = parseInt(stat.recoverers)
+          result.data.infects[currentIndex] = parseInt(stat.infects, 10)
+          result.data.deaths[currentIndex] = parseInt(stat.deaths, 10)
+          result.data.recoverers[currentIndex] = parseInt(stat.recoverers, 10)
         }
 
         return result

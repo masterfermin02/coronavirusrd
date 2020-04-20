@@ -60,8 +60,8 @@
                               <tr v-for="(province, i) in provinces" :key="i" >
                                   <th scope="row">{{ i + 1}}</th>
                                   <td>{{ province.title }}</td>
-                                  <td>{{ province.cases }}</td>
-                                  <td>{{ province.deaths }}</td>
+                                  <td>{{ convertToPresentationalNumber(province.cases) }}</td>
+                                  <td>{{ convertToPresentationalNumber(province.deaths) }}</td>
                               </tr>
                           </tbody>
                       </mdb-tbl>
@@ -137,6 +137,7 @@ import EvolutionaryRecoverersByDay from './EvolutionaryRecoverersByDay'
 import NewCasesByDay from './NewCasesByDay'
 import {descending, asscending} from "@/tools/comparision";
 import { mapState }  from 'vuex'
+import { convertToPresentationalNumber } from '../tools/parses';
 
 export default {
 
@@ -173,7 +174,8 @@ export default {
       sort(column) {
           this.direction = !this.direction;
           this.column = column
-      }
+      },
+      convertToPresentationalNumber,
     },
     data () {
         return {

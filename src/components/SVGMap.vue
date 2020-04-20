@@ -17,8 +17,8 @@
     </svg>
         <div class="mapsvg-tooltip mapsvg-tt-bottom-right" v-if="currentProvince.title" v-bind:style="{left: mouseX + 'px', top: mouseY + 'px'}" style="position:absolute;min-width: 100px; left: 374px; top: 313px;"><!-- Region fields are available in this template -->
            <p>{{currentProvince.title}}</p>
-            <p>infectados: {{ currentProvince.cases }}</p>
-            <p>muertes: {{ currentProvince.deaths }}</p>
+            <p>infectados: {{ convertToPresentationalNumber(currentProvince.cases) }}</p>
+            <p>muertes: {{ convertToPresentationalNumber(currentProvince.deaths) }}</p>
         </div>
         <div class="map-leyenda container" >
             <ul class="list-group">
@@ -41,6 +41,7 @@
 
 <script>
     import { mapState }  from 'vuex'
+    import { convertToPresentationalNumber } from '../tools/parses';
 
     export default {
         name: "SVGMap",
@@ -83,7 +84,8 @@
                 this.touched = true;
                 this.mouseX = this.mobilePositionX;
                 this.mouseY = this.mobilePositionY;
-            }
+            },
+            convertToPresentationalNumber
         },
 
         mounted() {
