@@ -15,6 +15,7 @@
     "mdbvue": "6.5.0",
     "moment": "^2.24.0",
     "vue": "^2.6.11",
+    "vue-analytics": "^5.22.1",
     "vue-axios": "^2.1.5",
     "vue2-google-maps": "^0.10.7"
   },

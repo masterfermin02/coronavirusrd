@@ -7,10 +7,18 @@ import router from './router'
 import { store } from './store'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import VueAnalytics from 'vue-analytics';
 
 Vue.use(VueAxios, axios)
 
 Vue.config.productionTip = false
+
+// Configuration VueAnalytics
+Vue.use(VueAnalytics, {
+  id: 'UA-161659874-1',
+  router
+});
+
 
 new Vue({
   router,

@@ -10,7 +10,6 @@ const Feedback = () => import('@/components/Feedbacks')
 const BadGateway = () => import('@/components/BadGateway')
 
 export default new Router({
-  mode: 'history',
   routes: [
     {
       path: '/',
@@ -20,20 +19,20 @@ export default new Router({
       alias: '/'
     },
     {
-      path: '/#acerca',
+      path: '/acerca',
       name: 'About',
       component: About,
       props: { page: 2 },
     },
     {
-      path: '/#sugerencias',
+      path: '/sugerencias',
       name: 'Feedbacks',
       component: Feedback,
       props: { page: 3 },
     },
 
     {
-      path: '/#colaboradores',
+      path: '/colaboradores',
       name: 'Collaborators',
       component: Collaborators,
       props: { page: 4 },
