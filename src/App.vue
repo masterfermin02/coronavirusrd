@@ -39,7 +39,7 @@
     <!--/.Navbar-->
     <!-- Sidebar -->
     <div class="sidebar-fixed position-fixed">
-      <a class="logo-wrapper"
+      <a class="logo-wrapper" href="/"
         ><img alt="" class="img-fluid" src="./assets/logo-mdb-vue-small.png"
       /></a>
       <mdb-list-group class="list-group-flush">
