@@ -11,5 +11,6 @@ deploy:
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
   local_dir: dist
+  fqdn: www.coronavirus-rd.com
   on:
     branch: master
