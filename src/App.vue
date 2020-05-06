@@ -40,7 +40,7 @@
     <!-- Sidebar -->
     <div class="sidebar-fixed position-fixed">
       <a class="logo-wrapper" href="/"
-        ><img alt="" class="img-fluid" src="./assets/logo-mdb-vue-small.png"
+        ><img alt="" class="img-fluid" src="./assets/1logotipo3000x3000.png"
       /></a>
       <mdb-list-group class="list-group-flush">
 
