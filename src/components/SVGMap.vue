@@ -19,6 +19,7 @@
            <p>{{currentProvince.title}}</p>
             <p>Infectados: {{ convertToPresentationalNumber(currentProvince.cases) }}</p>
             <p>Muertes: {{ convertToPresentationalNumber(currentProvince.deaths) }}</p>
+            <p>Recuperados: {{ convertToPresentationalNumber(currentProvince.recovereds) }}</p>
         </div>
         <div class="map-leyenda container" >
             <ul class="list-group">
