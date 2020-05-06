@@ -17,8 +17,8 @@
     </svg>
         <div class="mapsvg-tooltip mapsvg-tt-bottom-right" v-if="currentProvince.title" v-bind:style="{left: mouseX + 'px', top: mouseY + 'px'}" style="position:absolute;min-width: 100px; left: 374px; top: 313px;"><!-- Region fields are available in this template -->
            <p>{{currentProvince.title}}</p>
-            <p>infectados: {{ convertToPresentationalNumber(currentProvince.cases) }}</p>
-            <p>muertes: {{ convertToPresentationalNumber(currentProvince.deaths) }}</p>
+            <p>Infectados: {{ convertToPresentationalNumber(currentProvince.cases) }}</p>
+            <p>Muertes: {{ convertToPresentationalNumber(currentProvince.deaths) }}</p>
         </div>
         <div class="map-leyenda container" >
             <ul class="list-group">

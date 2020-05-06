@@ -12,11 +12,10 @@ npm install
 
 #### Project
 1. Fork and clone git repository.
-2. Copy contents for `firebaseEnvTemplate.js` to new `firebaseEnv.js` file
 ```bash
 >$ touch .env.development.local
 ``` 
-3. Use the following firebase config for development
+2. Use the following firebase config for development
 ```txt
 VUE_APP_FIREBASE_APIKEY=AIzaSyC75e2MJpejR3w2s5F173oUBks6D6UMMV4
 VUE_APP_FIREBASE_AUTHDOMAIN=coronavirus-rd-dev.firebaseapp.com
@@ -27,8 +26,8 @@ VUE_APP_FIREBASE_MESSAGING_ID=116223129618
 VUE_APP_FIREBASE_APPID=1:116223129618:web:6ea052c525b2ae7f8500cb
 VUE_APP_FIREBASE_MEASUREMENTID=G-XW1JWP29G4
 ```
-4. From root of project, run `npm start`
-5. In your browser, go to `localhost:8080` to test your local changes
+3. From root of project, run `npm start`
+4. In your browser, go to `localhost:8080` to test your local changes
 
 #### serve with hot reload at localhost:8080
 `npm run dev`
