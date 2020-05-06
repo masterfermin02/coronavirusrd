@@ -54,14 +54,16 @@
                                   <th> Provincia</th>
                                   <th><i @click="sort('cases')" class="fas fa-sort float-right"></i> Infectados</th>
                                   <th><i @click="sort('deaths')" class="fas fa-sort float-right"></i> Muertes</th>
+                                  <th><i @click="sort('recovereds')" class="fas fa-sort float-right"></i> Recuperados</th>
                               </tr>
                           </thead>
-                          <tbody v-if="provinces.length">
-                              <tr v-for="(province, i) in provinces" :key="i" >
+                          <tbody v-if="provinceWithFormat.length">
+                              <tr v-for="(province, i) in provinceWithFormat" :key="i" >
                                   <th scope="row">{{ i + 1}}</th>
                                   <td>{{ province.title }}</td>
-                                  <td>{{ convertToPresentationalNumber(province.cases) }}</td>
-                                  <td>{{ convertToPresentationalNumber(province.deaths) }}</td>
+                                  <td>{{ province.cases }}</td>
+                                  <td>{{ province.deaths }}</td>
+                                  <td>{{ province.recovereds }}</td>
                               </tr>
                           </tbody>
                       </mdb-tbl>
@@ -167,6 +169,16 @@ export default {
               this.column,
               this.direction ? descending : asscending
           )
+        },
+        provinceWithFormat() {
+          return  this.provinces.map( (province) => {
+              return {
+                  title: province.title,
+                  cases: this.convertToPresentationalNumber(province.cases),
+                  deaths: this.convertToPresentationalNumber(province.deaths),
+                  recovereds: this.convertToPresentationalNumber(province.recovereds)
+                };
+            });
         },
         ...mapState(['provincesStat'])
     },
