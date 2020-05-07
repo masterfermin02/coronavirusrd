@@ -5,9 +5,9 @@ import { sortByColumn } from "./tools/comparision";
 import firebaseSocketPlugin from './firebaseSocketPlugin'
 import provinceService from '@/services/provinceService'
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
-const firebaseStore = firebaseSocketPlugin()
+const firebaseStore = firebaseSocketPlugin();
 
 const mapPath = (paths, total) => {
   return paths.map((path, index) => {
@@ -36,10 +36,14 @@ export const store = new Vuex.Store({
     },
     provinceSortColumn: 'cases',
     provinceSortColumnDirection: true,
-    collaborators: []
+    collaborators: [],
+    province: ''
   },
 
   getters: {
+    getProvince(state) {
+      return state.provinces.find(province => province.title.toLowerCase() === state.province.toLowerCase()) || {};
+    },
     provincesPositiveCases: (state) => {
       return filterPositiveCase(mapPath(state.provinces, state.provincesStat))
     },
@@ -55,6 +59,35 @@ export const store = new Vuex.Store({
         labels: [],
         data: []
       })
+      return {
+        labels: results.labels,
+        datasets: [
+          {
+            label: "Infectados",
+            backgroundColor:  "rgba(127, 249, 216, 0.4)",
+            borderColor: "rgba(127, 249, 216, 1)",
+            borderWidth: 0.8,
+            data: results.data
+          }
+        ]
+      }
+    },
+    provincePositiCaseByDateChartData(state, getters) {
+      if (!getters.getProvince.stats) {
+        return {
+          labels: [],
+          data: []
+        };
+      }
+      let stats = getters.getProvince.stats;
+      const results = stats.reduce( (result, stat) => {
+        result.labels.push(stat.date)
+        result.data.push(stat.infects)
+        return result
+      }, {
+        labels: [],
+        data: []
+      });
       return {
         labels: results.labels,
         datasets: [
@@ -92,6 +125,42 @@ export const store = new Vuex.Store({
           recoverers: []
         }
       })
+    },
+    provincePositiveTotalCaseByDate(state, getters) {
+      if (!getters.getProvince.stats) {
+        return {
+          labels: [],
+          data: {
+            infects: [],
+            deaths: [],
+            recoverers: []
+          }
+        };
+      }
+      let stats = getters.getProvince.stats;
+      return stats.reduce( (result, stat, currentIndex) => {
+        result.labels.push(stat.date)
+
+        if(currentIndex > 0) {
+          let prevIndex = currentIndex - 1
+          result.data.infects.push(  result.data.infects[prevIndex] + parseInt(stat.infects, 10));
+          result.data.deaths.push( result.data.deaths[prevIndex] + parseInt(stat.deaths, 10));
+          result.data.recoverers.push( result.data.recoverers[prevIndex] + parseInt(stat.recoverers, 10));
+        } else {
+          result.data.infects[currentIndex] = parseInt(stat.infects, 10);
+          result.data.deaths[currentIndex] = parseInt(stat.deaths, 10);
+          result.data.recoverers[currentIndex] = parseInt(stat.recoverers, 10);
+        }
+
+        return result;
+      }, {
+        labels: [],
+        data: {
+          infects: [],
+          deaths: [],
+          recoverers: []
+        }
+      });
     },
     infectsChartData: (state, getters) => {
       const results = getters.positiveTotalCaseByDate
@@ -137,6 +206,51 @@ export const store = new Vuex.Store({
           }
         ]
       }
+    },
+    provinceInfectsChartData: (state, getters) => {
+      const results = getters.provincePositiveTotalCaseByDate;
+      return {
+        labels: results.labels,
+        datasets: [
+          {
+            label: "Infectados",
+            backgroundColor: "rgba(255, 99, 132, 0.1)",
+            borderColor: "rgba(255, 99, 132, 1)",
+            borderWidth: 0.7,
+            data: results.data.infects
+          }
+        ]
+      }
+    },
+    ProvinceDeathsChartData: (state, getters) => {
+      const results = getters.provincePositiveTotalCaseByDate;
+      return {
+        labels: results.labels,
+        datasets: [
+          {
+            label: "Muertes",
+            backgroundColor: "rgba(151,187,205,0.2)",
+            borderColor: "rgba(151,187,205,1)",
+            borderWidth: 0.8,
+            data: results.data.deaths
+          }
+        ]
+      }
+    },
+    ProvinceRecoverersChartData: (state, getters) => {
+      const results = getters.provincePositiveTotalCaseByDate
+      return {
+        labels: results.labels,
+        datasets: [
+          {
+            label: "Recuperados",
+            backgroundColor: "rgba(127, 249, 216, 0.4)",
+            borderColor: "rgba(127, 249, 216, 1)",
+            borderWidth: 0.8,
+            data: results.data.recoverers
+          }
+        ]
+      }
     }
   },
 
@@ -154,12 +268,18 @@ export const store = new Vuex.Store({
     },
     setCollaboratorPictureUrlById(state, val) {
       state.collaborators.find(item => item.id === val.id).pictureUrl = val.url
+    },
+    updateProvince(state, val) {
+      state.province = val;
     }
   },
 
   actions: {
     downLoadColaboratorImage ({commit}, val) {
       provinceService.getCollaboratorImage(val, collaborator => commit('setCollaboratorPictureUrlById',collaborator))
+    },
+    setProvince({ commit }, val) {
+       commit('updateProvince', val);
     }
   },
 

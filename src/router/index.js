@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Dashboard from '@/components/Dashboard'
 import Collaborators from '@/components/Collaborators'
+import DashboardProvince from '@/components/DashboardProvince'
 
 Vue.use(Router);
 
@@ -38,6 +39,12 @@ export default new Router({
       props: { page: 4 },
     },
     {
+      path: '/province/:title',
+      name: 'DashboardProvince',
+      component: DashboardProvince,
+      props: { page: 7 },
+    },
+    {
       path: '/404',
       name: 'BadGateway',
       props: { page: 5 },
@@ -45,7 +52,7 @@ export default new Router({
     },
     {
       path: '*',
-      props: { page: 5 },
+      props: { page: 6 },
       redirect: '/404'
     }
   ]

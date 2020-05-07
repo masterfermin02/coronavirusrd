@@ -9,9 +9,9 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 import VueAnalytics from 'vue-analytics';
 
-Vue.use(VueAxios, axios)
+Vue.use(VueAxios, axios);
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 // Configuration VueAnalytics
 Vue.use(VueAnalytics, {
