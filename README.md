@@ -43,15 +43,7 @@ VUE_APP_FIREBASE_MEASUREMENTID=G-XW1JWP29G4
 
 ## Contributors ✨
 Thank goes to these wonderful peoples ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-<table>
-  <tr>
-    <td align="center"><a href="https://github.com/aneudyx"><img src="https://avatars0.githubusercontent.com/u/23561071?s=400&v=4" width="100px;" alt=""/><br /><sub><b>aneudyx</b></sub></a><br /><a href="https://github.com/masterfermin02/coronavirusrd/commits/master?author=aneudyx" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/masterfermin02"><img src="https://avatars2.githubusercontent.com/u/4625540?s=460&u=95fee6a27a7ba27b993883be4c43991e019871d4&v=4" width="100px;" alt=""/><br /><sub><b>masterfermin02</b></sub></a><br /><a href="https://github.com/masterfermin02/coronavirusrd/commits/master?author=masterfermin02" title="code">💻</a></td>
-  </tr>
-</table>
+@all-contributors
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
