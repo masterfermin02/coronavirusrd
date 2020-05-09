@@ -43,4 +43,9 @@ VUE_APP_FIREBASE_MEASUREMENTID=G-XW1JWP29G4
 
 ## Contributors ✨
 Thank goes to these wonderful peoples ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
-@all-contributors
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
