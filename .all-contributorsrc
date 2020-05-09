@@ -15,14 +15,23 @@
       ]
     },
     {
-          "login": "aneudyx",
-          "name": "aneudyx",
-          "avatar_url": "https://avatars0.githubusercontent.com/u/23561071?s=400&v=4",
-          "profile": "https://github.com/aneudyx",
-          "contributions": [
-            "code"
-          ]
-        }
+      "login": "aneudyx",
+      "name": "aneudyx",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/23561071?s=400&v=4",
+      "profile": "https://github.com/aneudyx",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "ccruz2886",
+      "name": "Carlos Cruz",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/7207257?v=4",
+      "profile": "https://github.com/ccruz2886",
+      "contributions": [
+        "code"
+      ]
+    }
   ],
   "contributorsPerLine": 2,
   "projectName": "coronavirusrd",
