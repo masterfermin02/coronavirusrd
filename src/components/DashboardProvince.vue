@@ -2,7 +2,7 @@
   <section id="dashboard">
     <mdb-card class="mb-4">
       <mdb-card-body class="d-sm-flex justify-content-between ">
-          <p class="mb-6" >Seleccione la provincia que quiere introducir:</p>
+          <p class="mb-6" >Seleccione la provincia que quiere ver:</p>
           <select class="browser-default custom-select" v-model="provinceId" >
               <option
                       v-for="(province, i) in provinces"
@@ -15,7 +15,7 @@
     <mdb-card class="mb-4">
       <mdb-card-body class="d-sm-flex justify-content-between">
         <h4 class="mb-sm-0 pt-2">
-          Estado actual  del Coronavirus en REP DOM.
+          Estado actual  del Coronavirus en {{ getProvince.title }}.
         </h4>
       </mdb-card-body>
     </mdb-card>
