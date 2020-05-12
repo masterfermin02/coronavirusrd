@@ -46,6 +46,17 @@ Thank goes to these wonderful peoples ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/masterfermin02"><img src="https://avatars2.githubusercontent.com/u/4625540?s=460&u=95fee6a27a7ba27b993883be4c43991e019871d4&v=4" width="100px;" alt=""/><br /><sub><b>masterfermin02</b></sub></a><br /><a href="https://github.com/masterfermin02/coronavirusrd/commits?author=masterfermin02" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/aneudyx"><img src="https://avatars0.githubusercontent.com/u/23561071?s=400&v=4" width="100px;" alt=""/><br /><sub><b>aneudyx</b></sub></a><br /><a href="https://github.com/masterfermin02/coronavirusrd/commits?author=aneudyx" title="Code">💻</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/ccruz2886"><img src="https://avatars2.githubusercontent.com/u/7207257?v=4" width="100px;" alt=""/><br /><sub><b>Carlos Cruz</b></sub></a><br /><a href="https://github.com/masterfermin02/coronavirusrd/commits?author=ccruz2886" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/aneudycaceres"><img src="https://avatars1.githubusercontent.com/u/19669430?v=4" width="100px;" alt=""/><br /><sub><b>aneudycaceres</b></sub></a><br /><a href="https://github.com/masterfermin02/coronavirusrd/commits?author=aneudycaceres" title="Code">💻</a></td>
+  </tr>
+</table>
+
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
 <!-- ALL-CONTRIBUTORS-LIST:END -->
