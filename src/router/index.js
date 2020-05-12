@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import Dashboard from '@/components/Dashboard'
 import Collaborators from '@/components/Collaborators'
 import DashboardProvince from '@/components/DashboardProvince'
+import AllPost from '@/components/blog/AllPost'
 
 Vue.use(Router);
 
@@ -42,6 +43,12 @@ export default new Router({
       path: '/province/:title',
       name: 'DashboardProvince',
       component: DashboardProvince,
+      props: { page: 7 },
+    },
+    {
+      path: '/posts',
+      name: 'posts',
+      component: AllPost,
       props: { page: 7 },
     },
     {
