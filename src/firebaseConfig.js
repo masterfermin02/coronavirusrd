@@ -13,7 +13,8 @@ const config = {
     measurementId: process.env.VUE_APP_FIREBASE_MEASUREMENTID
 };
 
-firebase.initializeApp(config)
+firebase.initializeApp(config);
+firebase.analytics();
 
 // firebase utils
 const database = firebase.database()
