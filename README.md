@@ -4,6 +4,7 @@
 ![GitHub closed issues](https://img.shields.io/github/issues-closed/masterfermin02/coronavirusrd?style=for-the-badge)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/masterfermin02/coronavirusrd?style=for-the-badge)
 ![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/masterfermin02/coronavirusrd?style=for-the-badge)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c44087f1-61e9-4d27-bac6-54dfce21b39d/deploy-status)](https://app.netlify.com/sites/loving-wozniak-89ddc6/deploys)
 
 # Corona Virus RD
 
