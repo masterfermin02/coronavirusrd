@@ -42,6 +42,9 @@ VUE_APP_FIREBASE_MEASUREMENTID=G-XW1JWP29G4
 ### Sources:
 - The theme use in this project: [theme](https://mdbootstrap.com/docs/vue/)
 
+### Admin panel
+- [admin project](https://github.com/masterfermin02/coronavirusrd-admin)
+
 ## Contributors ✨
 Thank goes to these wonderful peoples ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
