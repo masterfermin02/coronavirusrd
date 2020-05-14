@@ -2,12 +2,13 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import { filterPositiveCase } from './filters/provinces'
 import { sortByColumn } from "./tools/comparision";
-import firebaseSocketPlugin from './firebaseSocketPlugin'
-import provinceService from '@/services/provinceService'
+const fb = require('@/firebaseConfig.js');
 
 Vue.use(Vuex);
 
-const firebaseStore = firebaseSocketPlugin();
+fb.provinces.on('value', snapshot => store.commit('setProvinces', snapshot.val() || []));
+fb.provincesStat.on('value', snapshot => store.commit('setProvincesStat', snapshot.val()));
+fb.collaborators.on('value', snapshot => store.commit('setCollaborators', snapshot.val() || []));
 
 const mapPath = (paths, total) => {
   return paths.map((path, index) => {
@@ -251,7 +252,8 @@ export const store = new Vuex.Store({
           }
         ]
       }
-    }
+    },
+    getCollaborators: (state) => state.collaborators
   },
 
   mutations: {
@@ -262,9 +264,7 @@ export const store = new Vuex.Store({
       state.provincesStat = val
     },
     setCollaborators(state, val) {
-      const collaboratorWithoutPicture = val.filter( item => !item.pictureUrl)
-      collaboratorWithoutPicture.forEach( item => store.dispatch('downLoadColaboratorImage', item))
-      state.collaborators = val
+      state.collaborators = val;
     },
     setCollaboratorPictureUrlById(state, val) {
       state.collaborators.find(item => item.id === val.id).pictureUrl = val.url
@@ -275,14 +275,9 @@ export const store = new Vuex.Store({
   },
 
   actions: {
-    downLoadColaboratorImage ({commit}, val) {
-      provinceService.getCollaboratorImage(val, collaborator => commit('setCollaboratorPictureUrlById',collaborator))
-    },
     setProvince({ commit }, val) {
        commit('updateProvince', val);
     }
-  },
-
-  plugins: [firebaseStore]
+  }
 
 })

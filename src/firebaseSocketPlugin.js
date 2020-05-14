@@ -1,11 +1,9 @@
-import provinceService from '@/services/provinceService'
 
-export default function firebaseSocketPlugin () {
+export default function firebaseSocketPlugin (socket) {
 
     return store => {
-
-        provinceService.getFromFisebase(provinces => store.commit('setProvinces', provinces) )
-        provinceService.getProvincesStat( provincesStat => store.commit('setProvincesStat', provincesStat))
-        provinceService.getCollaborators( collaborators => store.commit('setCollaborators', collaborators))
+        socket.provinces.on('value', snapshot => store.commit('setProvinces', snapshot.val() || []));
+        socket.provincesStat.on('value', snapshot => store.commit('setProvincesStat', snapshot.val()));
+        socket.collaborators.on('value', snapshot => store.commit('setCollaborators', snapshot.val() || []));
     }
 }

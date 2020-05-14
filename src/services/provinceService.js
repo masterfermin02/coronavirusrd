@@ -1,5 +1,5 @@
 
-const fb = require('@/firebaseConfig.js')
+const fb = require('@/firebaseConfig.js');
 
 export default {
 
@@ -15,16 +15,5 @@ export default {
 
     getCollaborators(cb) {
         fb.collaborators.on('value', snapshot => cb(snapshot.val() || []))
-    },
-
-    getCollaboratorImage(collaborator, cb) {
-        fb.collaboratorImageStore.child(`${collaborator.picture}`)
-        .getDownloadURL()
-        .then((url) => {
-            cb({
-                id: collaborator.id,
-                url: url
-            })
-        });
     }
 }

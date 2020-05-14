@@ -26,11 +26,13 @@ const provincesStat = database.ref('provincesStat/')
 const provinces = database.ref('provinces/')
 const collaborators = database.ref('collaborators/')
 const collaboratorImageStore = storageRef.child('collaborators')
+const analyticId = process.env.VUE_GOOGLE_ANALYLICS_KEY;
 
 export {
     auth,
     provinces,
     provincesStat,
     collaborators,
-    collaboratorImageStore
+    collaboratorImageStore,
+    analyticId
 }
