@@ -15,7 +15,7 @@
                             <mdb-btn color="primary" @click="urlPush('/sugerencias')" >Sugerencias</mdb-btn>
 
                         <p><a href="#map" ><mdb-icon class="fas" icon="male" /> Ver mas Datos</a></p>
-                        <p><a href="https://teespring.com/stores/coronavirus-rd" target="_blank" ><mdb-icon class="fas" icon="shopping-bag" /> Shop</a></p>
+                        <p><a href="https://teespring.com/stores/coronavirus-rd" @click="shopClick" target="_blank" ><mdb-icon class="fas" icon="shopping-bag" /> Shop</a></p>
                     </mdb-card-body>
                 </mdb-card>
             </mdb-col>
@@ -39,6 +39,15 @@
         methods: {
             urlPush(url) {
                 this.$router.push(url);
+            },
+            shopClick() {
+
+                this.$ga.event({
+                    eventCategory: 'shop',
+                    eventAction: 'click',
+                    eventLabel: 'Teespring Shopping bag clicked',
+                    eventValue: 'https://teespring.com/stores/coronavirus-rd'
+                })
             }
         }
     }
