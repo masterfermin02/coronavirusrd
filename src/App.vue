@@ -7,13 +7,17 @@
       >
       <mdb-navbar-toggler>
         <mdb-navbar-nav left>
-          <mdb-nav-item to="/" waves-fixed @click.native="active = 1"
-            >Inicio</mdb-nav-item
-          >
-          <mdb-nav-item :to="{ name: 'About'}" @click.native="activeItem = 2"
+          <mdb-nav-item to="/" waves-fixed @click.native="active = 1">
+            Inicio
+          </mdb-nav-item>
+          <mdb-nav-item :to="{ name: 'Details'}" @click.native="activeItem = 2"
             waves-fixed
-            >Acerca</mdb-nav-item
-          >
+            >
+            Ver Mapa
+          </mdb-nav-item>
+          <mdb-nav-item :to="{ name: 'About'}" @click.native="activeItem = 2"
+                        waves-fixed
+          >Acerca</mdb-nav-item>
           <mdb-nav-item :to="{ name: 'Feedbacks'}" @click.native="activeItem = 3"
             waves-fixed
             >Sugerencias</mdb-nav-item

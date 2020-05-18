@@ -41,7 +41,7 @@
 </template>
 
 <script>
-    import { mapState }  from 'vuex'
+    import { mapGetters }  from 'vuex'
     import { convertToPresentationalNumber } from '../tools/parses';
 
     export default {
@@ -59,7 +59,12 @@
             }
         },
         computed: {
-            ...mapState(['provinces'])
+            ...mapGetters(['getProvinces']),
+            provinces: {
+                get() {
+                    return this.getProvinces
+                }
+            }
         },
         methods: {
             getStyle(province) {
@@ -71,7 +76,6 @@
                     this.mouseY = Math.max(0,e.pageY - 400);
                 }
                 this.touched = false;
-
             },
             mouseOver(province) {
                 province.hover = true;

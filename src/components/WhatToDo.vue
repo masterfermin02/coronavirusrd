@@ -10,7 +10,7 @@
                         </div>
                     </div>
                     <mdb-card-body>
-                            <mdb-btn color="primary" @click="urlPush('/colaboradores')" >Colabooradores</mdb-btn>
+                            <mdb-btn color="primary" @click="urlPush('/details')" >Ver Mapa</mdb-btn>
                             <mdb-btn color="primary" @click="urlPush('/acerca')" >Acerca</mdb-btn>
                             <mdb-btn color="primary" @click="urlPush('/sugerencias')" >Sugerencias</mdb-btn>
 

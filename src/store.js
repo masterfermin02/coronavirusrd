@@ -45,8 +45,11 @@ export const store = new Vuex.Store({
     getProvince(state) {
       return state.provinces.find(province => province.title.toLowerCase() === state.province.toLowerCase()) || {};
     },
-    provincesPositiveCases: (state) => {
-      return filterPositiveCase(mapPath(state.provinces, state.provincesStat))
+    getProvinces(state) {
+      return mapPath(state.provinces, state.provincesStat);
+    },
+    provincesPositiveCases: (state, getters) => {
+      return filterPositiveCase(getters.getProvinces)
     },
     provincesSortByColumn: (state, getters) => (column, direction) => {
       return sortByColumn(column, direction)(getters.provincesPositiveCases)

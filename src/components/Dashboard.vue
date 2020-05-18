@@ -12,18 +12,6 @@
       <section>
           <what-to-do />
       </section>
-    <section>
-      <mdb-row>
-        <mdb-col lg="12" class="mb-4">
-          <mdb-card>
-            <mdb-card-header id="map" >Mapa De Casos </mdb-card-header>
-            <mdb-card-body  >
-              <s-v-g-map />
-            </mdb-card-body>
-          </mdb-card>
-        </mdb-col>
-      </mdb-row>
-    </section>
 
     <section>
       <mdb-row>
@@ -39,41 +27,6 @@
             </mdb-card-body>
           </mdb-card>
         </mdb-col>
-      </mdb-row>
-    </section>
-
-     <section>
-      <mdb-row>
-          <mdb-col md="12" class="mb-4">
-              <mdb-card>
-                  <mdb-card-header>Detalle por provincias</mdb-card-header>
-                  <mdb-card-body>
-                      <mdb-tbl responsive
-                               striped
-                               bordered
-                               hover>
-                          <thead class="blue lighten-4">
-                              <tr>
-                                  <th>#</th>
-                                  <th> Provincia</th>
-                                  <th><i @click="sort('cases')" class="fas fa-sort float-right"></i> Infectados</th>
-                                  <th><i @click="sort('deaths')" class="fas fa-sort float-right"></i> Muertes</th>
-                                  <th><i @click="sort('recovereds')" class="fas fa-sort float-right"></i> Recuperados</th>
-                              </tr>
-                          </thead>
-                          <tbody v-if="provinceWithFormat.length">
-                              <tr v-for="(province, i) in provinceWithFormat" :key="i" >
-                                  <th scope="row">{{ i + 1}}</th>
-                                  <td>{{ province.title }}</td>
-                                  <td>{{ province.cases }}</td>
-                                  <td>{{ province.deaths }}</td>
-                                  <td>{{ province.recovereds }}</td>
-                              </tr>
-                          </tbody>
-                      </mdb-tbl>
-                  </mdb-card-body>
-              </mdb-card>
-          </mdb-col>
       </mdb-row>
     </section>
 
@@ -130,13 +83,11 @@ import { mdbRow,
     mdbCard,
     mdbCardBody,
     mdbCardHeader,
-    mdbTbl,
     mdbCardTitle,
     mdbCardText,
     mdbIcon
 } from 'mdbvue'
 import stats from './stat/stats'
-import SVGMap from './SVGMap'
 import GenderComparision from './GenderComparision'
 import EvolutionaryInfectsByDay from './EvolutionaryInfectsByDay'
 import EvolutionaryDeathsByDay from './EvolutionaryDeathsByDay'
@@ -159,9 +110,7 @@ export default {
         mdbCardBody,
         mdbIcon,
         mdbCardHeader,
-        mdbTbl,
         stats,
-        SVGMap,
         GenderComparision,
         EvolutionaryInfectsByDay,
         EvolutionaryRecoverersByDay,
