@@ -43,9 +43,9 @@
             shopClick() {
 
                 this.$ga.event({
-                    eventCategory: 'shop',
+                    eventCategory: 'Outbound Link',
                     eventAction: 'click',
-                    eventLabel: 'Teespring Shopping bag clicked',
+                    eventLabel: 'https://teespring.com/stores/coronavirus-rd',
                     eventValue: 'https://teespring.com/stores/coronavirus-rd'
                 })
             }
