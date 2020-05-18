@@ -15,6 +15,7 @@
                             <mdb-btn color="primary" @click="urlPush('/sugerencias')" >Sugerencias</mdb-btn>
 
                         <p><a href="#map" ><mdb-icon class="fas" icon="male" /> Ver mas Datos</a></p>
+                        <p><a href="https://teespring.com/stores/coronavirus-rd" ><mdb-icon class="fas" icon="male" />Shop</a></p>
                     </mdb-card-body>
                 </mdb-card>
             </mdb-col>

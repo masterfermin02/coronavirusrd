@@ -115,7 +115,7 @@
       <ftr color="primary-color-dark" class="text-center font-small darken-2">
 
         <div class="pt-4">
-          <p>Este es un proyecto Open Source y sin fines de lucro, puedes colaborar aqui:</p>
+          <p>Este es un proyecto Open Source puedes colaborar aqui:</p>
           <mdb-btn
             outline="white"
             tag="a"
