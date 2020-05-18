@@ -1,7 +1,7 @@
 <template>
     <section class="mt-lg-5">
         <mdb-row>
-            <mdb-col xl="6" md="6" class="mb-r">
+            <mdb-col xl="12" md="6" class="mb-r">
                 <mdb-card cascade class="cascading-admin-card">
                     <div class="admin-up">
                         <img src="../assets/android-chrome-192x192.png" />
@@ -10,9 +10,10 @@
                         </div>
                     </div>
                     <mdb-card-body>
-                        <mdb-btn color="primary" @click="urlPush('/colaboradores')" >Colabooradores</mdb-btn>
-                        <mdb-btn color="primary" @click="urlPush('/acerca')" >Acerca</mdb-btn>
-                        <mdb-btn color="primary" @click="urlPush('/sugerencias')" >Sugerencias</mdb-btn>
+                            <mdb-btn color="primary" @click="urlPush('/colaboradores')" >Colabooradores</mdb-btn>
+                            <mdb-btn color="primary" @click="urlPush('/acerca')" >Acerca</mdb-btn>
+                            <mdb-btn color="primary" @click="urlPush('/sugerencias')" >Sugerencias</mdb-btn>
+
                         <p><a href="#map" ><mdb-icon class="fas" icon="male" /> Ver mas Datos</a></p>
                     </mdb-card-body>
                 </mdb-card>
@@ -65,9 +66,7 @@
         font-size: 1.45rem;
     }
     .cascading-admin-card .admin-up .data {
-        float: right;
-        margin-top: 2rem;
-        text-align: right;
+        padding-left: 5rem;
     }
     .admin-up .data p {
         font-size: 20px;
@@ -91,5 +90,14 @@
 
     .btn {
         width: 100%;
+    }
+
+    @media only screen and (min-width: 550px) {
+        .btn {
+            width: 50%;
+        }
+        .card-body {
+            text-align: center;
+        }
     }
 </style>
