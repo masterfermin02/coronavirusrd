@@ -8,11 +8,15 @@
       </mdb-card-body>
     </mdb-card>
       <stats />
+
+      <section>
+          <what-to-do />
+      </section>
     <section>
       <mdb-row>
         <mdb-col lg="12" class="mb-4">
           <mdb-card>
-            <mdb-card-header>Mapa De Casos </mdb-card-header>
+            <mdb-card-header id="map" >Mapa De Casos </mdb-card-header>
             <mdb-card-body  >
               <s-v-g-map />
             </mdb-card-body>
@@ -116,6 +120,7 @@
       <gender-comparision />
 
       <new-cases-by-day />
+
   </section>
 </template>
 
@@ -137,6 +142,7 @@ import EvolutionaryInfectsByDay from './EvolutionaryInfectsByDay'
 import EvolutionaryDeathsByDay from './EvolutionaryDeathsByDay'
 import EvolutionaryRecoverersByDay from './EvolutionaryRecoverersByDay'
 import NewCasesByDay from './NewCasesByDay'
+import WhatToDo from './WhatToDo';
 import {descending, asscending} from "@/tools/comparision";
 import { mapState }  from 'vuex'
 import { convertToPresentationalNumber } from '../tools/parses';
@@ -160,8 +166,8 @@ export default {
         EvolutionaryInfectsByDay,
         EvolutionaryRecoverersByDay,
         EvolutionaryDeathsByDay,
-        NewCasesByDay
-
+        NewCasesByDay,
+        WhatToDo
     },
     computed: {
         provinces() {

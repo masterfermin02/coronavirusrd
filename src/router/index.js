@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Dashboard from '@/components/Dashboard'
+import Main from '@/views/Main'
 import Collaborators from '@/components/Collaborators'
 import DashboardProvince from '@/components/DashboardProvince'
 import AllPost from '@/components/blog/AllPost'
@@ -16,8 +16,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Dashboard',
-      component: Dashboard,
+      name: 'Main',
+      component: Main,
       props: { page: 1 },
       alias: '/'
     },
