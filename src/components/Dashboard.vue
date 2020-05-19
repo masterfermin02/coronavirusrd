@@ -51,29 +51,6 @@
               </mdb-col>
           </mdb-row>
       </section>
-
-      <evolutionary-infects-by-day />
-      <evolutionary-deaths-by-day />
-      <evolutionary-recoverers-by-day />
-
-      <section>
-          <mdb-row>
-              <mdb-col md="12" class="mb-4">
-                  <mdb-card reverse>
-                      <mdb-card-header>Edad media de fallecidos</mdb-card-header>
-                      <mdb-card-body class="text-center" cascade>
-                          <mdb-card-title><strong>{{provincesStat.avrgAge}}</strong> a&ntilde;os</mdb-card-title>
-                          <mdb-card-text>Rango de: {{provincesStat.minAge}} a {{provincesStat.maxAge}} a&ntilde;os</mdb-card-text>
-                      </mdb-card-body>
-                  </mdb-card>
-              </mdb-col>
-          </mdb-row>
-      </section>
-
-      <gender-comparision />
-
-      <new-cases-by-day />
-
   </section>
 </template>
 
@@ -82,17 +59,11 @@ import { mdbRow,
     mdbCol,
     mdbCard,
     mdbCardBody,
-    mdbCardHeader,
     mdbCardTitle,
     mdbCardText,
     mdbIcon
 } from 'mdbvue'
 import stats from './stat/stats'
-import GenderComparision from './GenderComparision'
-import EvolutionaryInfectsByDay from './EvolutionaryInfectsByDay'
-import EvolutionaryDeathsByDay from './EvolutionaryDeathsByDay'
-import EvolutionaryRecoverersByDay from './EvolutionaryRecoverersByDay'
-import NewCasesByDay from './NewCasesByDay'
 import WhatToDo from './WhatToDo';
 import {descending, asscending} from "@/tools/comparision";
 import { mapState }  from 'vuex'
@@ -109,13 +80,7 @@ export default {
         mdbCardText,
         mdbCardBody,
         mdbIcon,
-        mdbCardHeader,
         stats,
-        GenderComparision,
-        EvolutionaryInfectsByDay,
-        EvolutionaryRecoverersByDay,
-        EvolutionaryDeathsByDay,
-        NewCasesByDay,
         WhatToDo
     },
     computed: {

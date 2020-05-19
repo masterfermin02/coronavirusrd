@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Main from '@/views/Main'
+import Graphs from '@/views/Graphs'
 import Collaborators from '@/components/Collaborators'
 import DashboardProvince from '@/components/DashboardProvince'
 import Details from '@/views/Details'
@@ -58,6 +59,12 @@ export default new Router({
       name: 'Details',
       component: Details,
       props: { page: 8 }
+    },
+    {
+      path: '/graficos',
+      name: 'Graphs',
+      component: Graphs,
+      props: { page: 9 }
     },
     {
       path: '/404',

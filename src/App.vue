@@ -10,7 +10,7 @@
           <mdb-nav-item to="/" waves-fixed @click.native="active = 1">
             Inicio
           </mdb-nav-item>
-          <mdb-nav-item :to="{ name: 'Details'}" @click.native="activeItem = 2"
+          <mdb-nav-item :to="{ name: 'Details'}" @click.native="activeItem = 8"
             waves-fixed
             >
             Ver Mapa
@@ -26,6 +26,11 @@
             waves-fixed
             >Colaboradores</mdb-nav-item
           >
+          <mdb-nav-item :to="{ name: 'Graphs'}" @click.native="activeItem = 9"
+                        waves-fixed
+          >Estadisticas</mdb-nav-item
+          >
+
         </mdb-navbar-nav>
         <mdb-navbar-nav right>
           <mdb-nav-item>Siguenos:</mdb-nav-item>
