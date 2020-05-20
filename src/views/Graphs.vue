@@ -42,7 +42,7 @@
                         </div>
                         <mdb-card-body>
                             <mdb-btn color="primary" @click="urlPush('/details')" >Ver mapa</mdb-btn>
-                            <mdb-btn color="primary" @click="urlPush('/acerca')" >Acerca</mdb-btn>
+                            <mdb-btn color="primary" @click="urlPush('/province/Distrito%20Nacional')" >Ver provincias</mdb-btn>
                             <p><a href="/" ><mdb-icon class="fas" icon="male" /> Ver mas Datos</a></p>
                         </mdb-card-body>
                     </mdb-card>

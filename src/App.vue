@@ -15,6 +15,11 @@
             >
             Ver Mapa
           </mdb-nav-item>
+          <mdb-nav-item href="/province/Distrito%20Nacional" @click.native="activeItem = 7"
+                        waves-fixed
+          >
+            Ver provincias
+          </mdb-nav-item>
           <mdb-nav-item :to="{ name: 'About'}" @click.native="activeItem = 2"
                         waves-fixed
           >Acerca</mdb-nav-item>

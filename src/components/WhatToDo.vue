@@ -12,8 +12,7 @@
                     <mdb-card-body>
                             <mdb-btn color="primary" @click="urlPush('/details')" >Ver Mapa</mdb-btn>
                             <mdb-btn color="primary" @click="urlPush('/acerca')" >Acerca</mdb-btn>
-                            <mdb-btn color="primary" @click="urlPush('/sugerencias')" >Sugerencias</mdb-btn>
-
+                            <mdb-btn color="primary" @click="urlPush('/province/santiago')" >Ver provincia</mdb-btn>
                         <p><a href="/graficos" ><mdb-icon class="fas" icon="male" /> Ver mas Datos</a></p>
                         <p><a href="https://teespring.com/stores/coronavirus-rd" @click="shopClick" target="_blank" ><mdb-icon class="fas" icon="shopping-bag" /> Shop</a></p>
                     </mdb-card-body>
