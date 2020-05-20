@@ -46,8 +46,8 @@
                     eventCategory: 'Outbound Link',
                     eventAction: 'click',
                     eventLabel: 'https://teespring.com/stores/coronavirus-rd',
-                    eventValue: 'https://teespring.com/stores/coronavirus-rd'
-                })
+                    eventValue: 1
+                });
             }
         }
     }
