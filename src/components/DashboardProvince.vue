@@ -128,8 +128,7 @@ export default {
             },
             set(value) {
                 let currentProvince = this.provinces.find( province => province.id === value);
-                this.$store.dispatch('setProvince', currentProvince.title);
-                this.$router.push('/province/' + currentProvince.title);
+                window.location = '/province/' + currentProvince.title;
             }
         }
     },
