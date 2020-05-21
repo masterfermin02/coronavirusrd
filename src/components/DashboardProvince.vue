@@ -3,11 +3,11 @@
     <mdb-card class="mb-4">
       <mdb-card-body class="d-sm-flex justify-content-between ">
           <p class="mb-6" >Seleccione la provincia que quiere ver:</p>
-          <select class="browser-default custom-select" v-model="provinceId" >
+          <select class="browser-default custom-select" v-model="name" >
               <option
                       v-for="(province, i) in provinces"
                       :key="i"
-                      :value="province.id"
+                      :value="province.title"
               >{{ province.title }}</option>
           </select>
       </mdb-card-body>
@@ -15,7 +15,7 @@
     <mdb-card class="mb-4">
       <mdb-card-body class="d-sm-flex justify-content-between">
         <h4 class="mb-sm-0 pt-2">
-          Estado actual  del Coronavirus en {{ getProvince.title }}.
+          Estado actual  del Coronavirus en {{ name }}.
         </h4>
       </mdb-card-body>
     </mdb-card>
@@ -122,13 +122,12 @@ export default {
     computed: {
         ...mapState(['provinces']),
         ...mapGetters(['getProvince']),
-        provinceId: {
+        name: {
             get() {
-                return this.getProvince.id;
+                return this.getProvince.name;
             },
             set(value) {
-                let currentProvince = this.provinces.find( province => province.id === value);
-                window.location = '/province/' + currentProvince.title;
+                window.location = '/province/' + value.toLowerCase();
             }
         }
     },

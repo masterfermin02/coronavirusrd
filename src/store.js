@@ -43,7 +43,11 @@ export const store = new Vuex.Store({
 
   getters: {
     getProvince(state) {
-      return state.provinces.find(province => province.title.toLowerCase() === state.province.toLowerCase()) || {};
+      if (state.provincesStat.province) {
+        return state.provincesStat.province.provinces.find(province => province.name.toLowerCase() === state.province.toLowerCase()) || {};
+      }
+
+      return {};
     },
     getProvinces(state) {
       return mapPath(state.provinces, state.provincesStat);
@@ -77,20 +81,23 @@ export const store = new Vuex.Store({
       }
     },
     provincePositiCaseByDateChartData(state, getters) {
-      if (!getters.getProvince.stats) {
+      if (!getters.getProvince.cases) {
         return {
           labels: [],
           data: []
         };
       }
-      let stats = getters.getProvince.stats;
+      let stats = getters.getProvince.cases;
       const results = stats.reduce( (result, stat) => {
-        result.labels.push(stat.date)
-        result.data.push(stat.infects)
+        result.labels.push(stat.date);
+        let diff = parseInt(stat.total_cases) - result.total;
+        result.total = parseInt(stat.total_cases);
+        result.data.push(diff);
         return result
       }, {
         labels: [],
-        data: []
+        data: [],
+        total: 0
       });
       return {
         labels: results.labels,
@@ -131,7 +138,7 @@ export const store = new Vuex.Store({
       })
     },
     provincePositiveTotalCaseByDate(state, getters) {
-      if (!getters.getProvince.stats) {
+      if (!getters.getProvince.cases) {
         return {
           labels: [],
           data: {
@@ -141,20 +148,12 @@ export const store = new Vuex.Store({
           }
         };
       }
-      let stats = getters.getProvince.stats;
-      return stats.reduce( (result, stat, currentIndex) => {
-        result.labels.push(stat.date)
-
-        if(currentIndex > 0) {
-          let prevIndex = currentIndex - 1
-          result.data.infects.push(  result.data.infects[prevIndex] + parseInt(stat.infects, 10));
-          result.data.deaths.push( result.data.deaths[prevIndex] + parseInt(stat.deaths, 10));
-          result.data.recoverers.push( result.data.recoverers[prevIndex] + parseInt(stat.recoverers, 10));
-        } else {
-          result.data.infects[currentIndex] = parseInt(stat.infects, 10);
-          result.data.deaths[currentIndex] = parseInt(stat.deaths, 10);
-          result.data.recoverers[currentIndex] = parseInt(stat.recoverers, 10);
-        }
+      let stats = getters.getProvince.cases;
+      return stats.reduce( (result, stat) => {
+        result.labels.push(stat.date);
+        result.data.infects.push(parseInt(stat.total_cases, 10));
+        result.data.deaths.push(parseInt(stat.total_deaths, 10));
+        result.data.recoverers.push(parseInt(stat.total_recovered, 10));
 
         return result;
       }, {
