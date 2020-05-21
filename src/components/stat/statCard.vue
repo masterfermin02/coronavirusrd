@@ -1,5 +1,5 @@
 <template>
-    <mdb-col xl="3" md="6" class="mb-r">
+    <mdb-col :xl="getMd" md="6" class="mb-r">
         <mdb-card cascade class="cascading-admin-card">
             <div class="admin-up">
                 <mdb-icon :class="[icon, color]" far />
@@ -22,12 +22,18 @@
 
     export default {
         name: "statCard",
-        props: ['label', 'data', 'lastUpdate',  'color', 'icon'],
+        props: ['label', 'data', 'lastUpdate',  'color', 'icon', 'md'],
         components: {
             mdbCol,
             mdbCard,
             mdbIcon,
             mdbCardBody
+        },
+        computed: {
+            getMd() {
+
+                return typeof this.md === 'undefined' ? 3 : this.md;
+            }
         }
     }
 </script>

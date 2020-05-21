@@ -7,6 +7,7 @@
                        :data="card.data"
                        :icon="card.icon"
                        :last-update="lastUpdate"
+                       md="4"
                        :color="card.color" ></stat-card>
         </mdb-row>
     </section>
@@ -58,7 +59,6 @@
             cards() {
                 return [
                     {label: 'INFECTADOS', data: convertToPresentationalNumber(this.totals.infects), icon: 'fa-hospital', color: 'red'},
-                    {label: 'DESCARTADOS', data: convertToPresentationalNumber(this.totals.discarted), icon: 'fa-vials', color: 'fas fas-far warning-color'},
                     {label: 'RECUPERADOS', data: convertToPresentationalNumber(this.totals.recoverers), icon: 'fa-walking', color: 'fas fas-far green lighten-1'},
                     {label: 'MUERTES', data: convertToPresentationalNumber(this.totals.deaths), icon: 'fa-skull-crossbones', color: 'fas fas-far black accent-2'}
                 ]
