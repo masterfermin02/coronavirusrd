@@ -25,42 +25,42 @@
         data() {
             return {
                 totalColumns: {
-                    infects: 0,
-                    recoverers: 0,
-                    discarted: 0,
-                    deaths: 0
+                    total_cases: 0,
+                    total_deaths: 0,
+                    total_recovered: 0
                 }
             }
         },
         computed: {
-            ...mapState(['provinces', 'province']),
+            ...mapState(['provincesStat', 'province']),
             getProvince() {
-                return this.provinces.find(item => item.title.toLowerCase() === this.province.toLowerCase()) || {};
+                if (this.provincesStat.province) {
+                    return  this.provincesStat.province.provinces.find(item => item.name.toLowerCase() === this.province.toLowerCase());
+                }
+                return {};
+            },
+            lastCase () {
+                if (!this.getProvince.cases) {
+                    return {};
+                }
+
+                return this.getProvince.cases[this.getProvince.cases.length - 1]
             },
             totals() {
-                if (!this.getProvince.stats) {
+                if (!this.getProvince.cases) {
                     return this.totalColumns;
                 }
 
-                return this.getProvince.stats.reduce((totals, stat) => {
-                    return Object.keys(this.totalColumns).reduce((columnTotal, column) => {
-                        totals[column] += parseInt(stat[column] || 0);
-                        return totals;
-                    }, totals);
-                }, this.totalColumns);
+                return this.lastCase;
             },
             lastUpdate() {
-                if (this.getProvince.stats && this.getProvince.stats.length) {
-                    return this.getProvince.stats[this.getProvince.stats.length - 1].date;
-                }
-
-                return '';
+                return this.lastCase.date;
             },
             cards() {
                 return [
-                    {label: 'INFECTADOS', data: convertToPresentationalNumber(this.totals.infects), icon: 'fa-hospital', color: 'red'},
-                    {label: 'RECUPERADOS', data: convertToPresentationalNumber(this.totals.recoverers), icon: 'fa-walking', color: 'fas fas-far green lighten-1'},
-                    {label: 'MUERTES', data: convertToPresentationalNumber(this.totals.deaths), icon: 'fa-skull-crossbones', color: 'fas fas-far black accent-2'}
+                    {label: 'INFECTADOS', data: convertToPresentationalNumber(this.totals.total_cases), icon: 'fa-hospital', color: 'red'},
+                    {label: 'RECUPERADOS', data: convertToPresentationalNumber(this.totals.total_recovered), icon: 'fa-walking', color: 'fas fas-far green lighten-1'},
+                    {label: 'MUERTES', data: convertToPresentationalNumber(this.totals.total_deaths), icon: 'fa-skull-crossbones', color: 'fas fas-far black accent-2'}
                 ]
             }
         },
