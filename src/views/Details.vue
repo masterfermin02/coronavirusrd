@@ -65,8 +65,8 @@
                         </div>
                         <mdb-card-body>
                             <mdb-btn color="primary" @click="urlPush('/province/Distrito%20Nacional')" >Ver Provincias</mdb-btn>
+                            <mdb-btn color="primary" @click="urlPush('/graficos')" ><mdb-icon class="fas" icon="chart-line" /> Ver estadística</mdb-btn>
                             <mdb-btn color="primary" @click="urlPush('/acerca')" >Acerca</mdb-btn>
-                            <p><a href="/" ><mdb-icon class="fas" icon="male" /> Ver mas Datos</a></p>
                         </mdb-card-body>
                     </mdb-card>
                 </mdb-col>

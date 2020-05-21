@@ -73,9 +73,8 @@
                       </div>
                       <mdb-card-body>
                           <mdb-btn color="primary" @click="urlPush('/details')" >Ver Mapa</mdb-btn>
+                          <mdb-btn color="primary" @click="urlPush('/graficos')" ><mdb-icon class="fas" icon="chart-line" /> Ver estadística</mdb-btn>
                           <mdb-btn color="primary" @click="urlPush('/acerca')" >Acerca</mdb-btn>
-                          <p><a href="/graficos" ><mdb-icon class="fas" icon="male" /> Ver mas Datos</a></p>
-                          <p><a href="https://teespring.com/stores/coronavirus-rd" @click="shopClick" target="_blank" ><mdb-icon class="fas" icon="shopping-bag" /> apoyanos</a></p>
                       </mdb-card-body>
                   </mdb-card>
               </mdb-col>
@@ -134,15 +133,6 @@ export default {
     methods: {
         urlPush(url) {
             this.$router.push(url);
-        },
-        shopClick() {
-
-            this.$ga.event({
-                eventCategory: 'Outbound Link',
-                eventAction: 'click',
-                eventLabel: 'https://teespring.com/stores/coronavirus-rd',
-                eventValue: 2
-            });
         }
     },
     mounted() {
