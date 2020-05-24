@@ -40,11 +40,11 @@
                 return {};
             },
             lastCase () {
-                if (!this.getProvince.cases) {
-                    return {};
+                if (this.getProvince.cases) {
+                    return this.getProvince.cases[this.getProvince.cases.length - 1];
                 }
 
-                return this.getProvince.cases[this.getProvince.cases.length - 1]
+                return {};
             },
             totals() {
                 if (!this.getProvince.cases) {

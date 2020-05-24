@@ -7,8 +7,8 @@
               <option
                       v-for="(province, i) in provinces"
                       :key="i"
-                      :value="province.title"
-              >{{ province.title }}</option>
+                      :value="province.name"
+              >{{ province.name }}</option>
           </select>
       </mdb-card-body>
     </mdb-card>
