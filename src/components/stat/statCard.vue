@@ -32,7 +32,7 @@
         computed: {
             getMd() {
 
-                return typeof this.md === 'undefined' ? 3 : this.md;
+                return typeof this.md === 'undefined' ? '3' : this.md;
             }
         }
     }

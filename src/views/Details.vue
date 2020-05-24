@@ -33,18 +33,18 @@
                                 <tr>
                                     <th>#</th>
                                     <th> Provincia</th>
-                                    <th><i @click="sort('cases')" class="fas fa-sort float-right"></i> Infectados</th>
-                                    <th><i @click="sort('deaths')" class="fas fa-sort float-right"></i> Muertes</th>
-                                    <th><i @click="sort('recovereds')" class="fas fa-sort float-right"></i> Recuperados</th>
+                                    <th><i @click="sort('total_cases')" class="fas fa-sort float-right"></i> Infectados</th>
+                                    <th><i @click="sort('total_deaths')" class="fas fa-sort float-right"></i> Muertes</th>
+                                    <th><i @click="sort('total_recovered')" class="fas fa-sort float-right"></i> Recuperados</th>
                                 </tr>
                                 </thead>
-                                <tbody v-if="provinceWithFormat.length">
+                                <tbody >
                                 <tr v-for="(province, i) in provinceWithFormat" :key="i" >
                                     <th scope="row">{{ i + 1}}</th>
-                                    <td>{{ province.title }}</td>
-                                    <td>{{ province.cases }}</td>
-                                    <td>{{ province.deaths }}</td>
-                                    <td>{{ province.recovereds }}</td>
+                                    <td>{{ province.name }}</td>
+                                    <td>{{ province.total_cases }}</td>
+                                    <td>{{ province.total_deaths }}</td>
+                                    <td>{{ province.total_recovered }}</td>
                                 </tr>
                                 </tbody>
                             </mdb-tbl>
@@ -88,7 +88,7 @@
     import SVGMap from '../components/SVGMap';
     import {descending, asscending} from "@/tools/comparision";
     import { convertToPresentationalNumber } from '../tools/parses';
-    import { mapState }  from 'vuex';
+    import { mapGetters }  from 'vuex';
 
     export default {
         name: "Details",
@@ -104,23 +104,23 @@
             mdbIcon
         },
         computed: {
+            ...mapGetters(['provincesSortByColumn']),
             provinces() {
-                return this.$store.getters.provincesSortByColumn(
+                return this.provincesSortByColumn(
                     this.column,
                     this.direction ? descending : asscending
-                )
+                );
             },
             provinceWithFormat() {
                 return  this.provinces.map( (province) => {
                     return {
-                        title: province.title,
-                        cases: this.convertToPresentationalNumber(province.cases),
-                        deaths: this.convertToPresentationalNumber(province.deaths),
-                        recovereds: this.convertToPresentationalNumber(province.recovereds)
+                        name: province.name,
+                        total_cases: this.convertToPresentationalNumber(province.total_cases),
+                        total_deaths: this.convertToPresentationalNumber(province.total_deaths),
+                        total_recovered: this.convertToPresentationalNumber(province.total_recovered)
                     };
                 });
-            },
-            ...mapState(['provincesStat'])
+            }
         },
         methods: {
             sort(column) {
@@ -134,7 +134,7 @@
         },
         data () {
             return {
-                column: 'cases',
+                column: 'total_cases',
                 direction: true
             }
         }

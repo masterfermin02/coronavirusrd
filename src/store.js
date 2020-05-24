@@ -6,19 +6,33 @@ const fb = require('@/firebaseConfig.js');
 
 Vue.use(Vuex);
 
-fb.provinces.on('value', snapshot => store.commit('setProvinces', snapshot.val() || []));
-fb.provincesStat.on('value', snapshot => store.commit('setProvincesStat', snapshot.val()));
-fb.collaborators.on('value', snapshot => store.commit('setCollaborators', snapshot.val() || []));
-
-const mapPath = (paths, total) => {
+const mapPath = (provincesStat) => {
+  const paths = provincesStat
+      .province
+      .provinces
+      .map(province => {
+        let oldProvince = store.state.oldProvinces.find(item => province.name === item.title);
+        return {
+          ...province.cases[province.cases.length - 1],
+          name: province.name,
+          data: oldProvince ? oldProvince.data : ''
+        };
+      });
   return paths.map((path, index) => {
     path['id'] = "DO-" + (index + 1);
-    path['style'] = `fill: rgb(224, 101, 101, ${(path.cases / total.cases) * 100}); stroke: rgba(123, 111, 111, 0.87); stroke-width: 1.29247px;`;
+    path['style'] = `fill: rgb(224, 101, 101, ${(path.total_cases / provincesStat.cases) * 100}); stroke: rgba(123, 111, 111, 0.87); stroke-width: 1.29247px;`;
     path['styleFilled'] = defaultData.styleFilled;
     path['hover'] = false;
     return path;
   });
 };
+
+fb.provincesStat.on('value', snapshot => {
+  const provincesStat = snapshot.val();
+  store.commit('setProvincesStat', provincesStat);
+});
+fb.collaborators.on('value', snapshot => store.commit('setCollaborators', snapshot.val() || []));
+fb.provinces.on('value', snapshot => store.commit('setOldProvince', snapshot.val() || []));
 
 const defaultData = {
   styleFilled: "fill: rgb(239, 177, 177, 1); stroke: rgb(247, 247, 247); stroke-width: 1.29247px;"
@@ -27,6 +41,7 @@ const defaultData = {
 export const store = new Vuex.Store({
   state: {
     provinces: [],
+    oldProvinces: [],
     provincesStat: {
       cases: 0,
       investigations: 0,
@@ -50,7 +65,7 @@ export const store = new Vuex.Store({
       return {};
     },
     getProvinces(state) {
-      return mapPath(state.provinces, state.provincesStat);
+      return state.provinces;
     },
     provincesPositiveCases: (state, getters) => {
       return filterPositiveCase(getters.getProvinces)
@@ -263,13 +278,19 @@ export const store = new Vuex.Store({
       state.provinces = val
     },
     setProvincesStat(state, val) {
-      state.provincesStat = val
+      state.provincesStat = val;
     },
     setCollaborators(state, val) {
       state.collaborators = val;
     },
     setCollaboratorPictureUrlById(state, val) {
       state.collaborators.find(item => item.id === val.id).pictureUrl = val.url
+    },
+    setOldProvince(state, val) {
+      state.oldProvinces = val;
+      if (state.provincesStat.province) {
+        store.commit('setProvinces', mapPath(state.provincesStat));
+      }
     },
     updateProvince(state, val) {
       state.province = val;

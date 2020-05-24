@@ -6,7 +6,7 @@
               :key="i"
               :index="i"
               :d="province.data"
-              :title="province.title"
+              :title="province.name"
               :id="province.id"
               @mouseover="mouseOver(province)"
               @mouseleave="mouseLeave(province)"
@@ -15,11 +15,11 @@
               :style="getStyle(province)">
         </path>
     </svg>
-        <div class="mapsvg-tooltip mapsvg-tt-bottom-right" v-if="currentProvince.title" v-bind:style="{left: mouseX + 'px', top: mouseY + 'px'}" style="position:absolute;min-width: 100px; left: 374px; top: 313px;"><!-- Region fields are available in this template -->
-           <p>{{currentProvince.title}}</p>
-            <p>Infectados: {{ convertToPresentationalNumber(currentProvince.cases) }}</p>
-            <p>Muertes: {{ convertToPresentationalNumber(currentProvince.deaths) }}</p>
-            <p>Recuperados: {{ convertToPresentationalNumber(currentProvince.recovereds) }}</p>
+        <div class="mapsvg-tooltip mapsvg-tt-bottom-right" v-if="currentProvince.name" v-bind:style="{left: mouseX + 'px', top: mouseY + 'px'}" style="position:absolute;min-width: 100px; left: 374px; top: 313px;"><!-- Region fields are available in this template -->
+           <p>{{currentProvince.name}}</p>
+            <p>Infectados: {{ convertToPresentationalNumber(currentProvince.total_cases) }}</p>
+            <p>Muertes: {{ convertToPresentationalNumber(currentProvince.total_deaths) }}</p>
+            <p>Recuperados: {{ convertToPresentationalNumber(currentProvince.total_recovered) }}</p>
         </div>
         <div class="map-leyenda container" >
             <ul class="list-group">
