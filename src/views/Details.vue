@@ -41,7 +41,7 @@
                                 <tbody >
                                 <tr v-for="(province, i) in provinceWithFormat" :key="i" >
                                     <th scope="row">{{ i + 1}}</th>
-                                    <td>{{ province.name }}</td>
+                                    <td><a :href=" '/province/' + province.name" >{{ province.name }}</a></td>
                                     <td>{{ province.total_cases }}</td>
                                     <td>{{ province.total_deaths }}</td>
                                     <td>{{ province.total_recovered }}</td>

@@ -11,6 +11,7 @@
               @mouseover="mouseOver(province)"
               @mouseleave="mouseLeave(province)"
               @touchstart="handle"
+              @click="goToProvince(province)"
               class="mapsvg-region"
               :style="getStyle(province)">
         </path>
@@ -90,7 +91,10 @@
                 this.mouseX = this.mobilePositionX;
                 this.mouseY = this.mobilePositionY;
             },
-            convertToPresentationalNumber
+            convertToPresentationalNumber,
+            goToProvince(province) {
+                window.location = '/province/' + province.name;
+            }
         },
 
         mounted() {
