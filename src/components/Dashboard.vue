@@ -10,6 +10,53 @@
       <stats />
 
       <section>
+          <mdb-row>
+              <mdb-col lg="12" class="mb-4">
+                  <mdb-card>
+                      <mdb-card-header id="map" >Mapa De Casos </mdb-card-header>
+                      <mdb-card-body  >
+                          <s-v-g-map />
+                      </mdb-card-body>
+                  </mdb-card>
+              </mdb-col>
+          </mdb-row>
+      </section>
+      <section>
+          <mdb-row>
+              <mdb-col md="12" class="mb-4">
+                  <mdb-card>
+                      <mdb-card-header>Detalle por provincias</mdb-card-header>
+                      <mdb-card-body>
+                          <mdb-tbl responsive
+                                   striped
+                                   bordered
+                                   hover>
+                              <thead class="blue lighten-4">
+                              <tr>
+                                  <th>#</th>
+                                  <th> Provincia</th>
+                                  <th><i @click="sort('total_cases')" class="fas fa-sort float-right"></i> Infectados</th>
+                                  <th><i @click="sort('total_deaths')" class="fas fa-sort float-right"></i> Muertes</th>
+                                  <th><i @click="sort('total_recovered')" class="fas fa-sort float-right"></i> Recuperados</th>
+                              </tr>
+                              </thead>
+                              <tbody >
+                              <tr v-for="(province, i) in provinceWithFormat" :key="i" >
+                                  <th scope="row">{{ i + 1}}</th>
+                                  <td><a :href=" '/province/' + province.name" >{{ province.name }}</a></td>
+                                  <td>{{ province.total_cases }}</td>
+                                  <td>{{ province.total_deaths }}</td>
+                                  <td>{{ province.total_recovered }}</td>
+                              </tr>
+                              </tbody>
+                          </mdb-tbl>
+                      </mdb-card-body>
+                  </mdb-card>
+              </mdb-col>
+          </mdb-row>
+      </section>
+
+      <section>
           <what-to-do />
       </section>
 
@@ -61,12 +108,15 @@ import { mdbRow,
     mdbCardBody,
     mdbCardTitle,
     mdbCardText,
-    mdbIcon
-} from 'mdbvue'
-import stats from './stat/stats'
+    mdbIcon,
+    mdbCardHeader,
+    mdbTbl
+} from 'mdbvue';
+import SVGMap from '../components/SVGMap';
+import stats from './stat/stats';
 import WhatToDo from './WhatToDo';
 import {descending, asscending} from "@/tools/comparision";
-import { mapState }  from 'vuex'
+import { mapGetters }  from 'vuex'
 import { convertToPresentationalNumber } from '../tools/parses';
 
 export default {
@@ -81,26 +131,29 @@ export default {
         mdbCardBody,
         mdbIcon,
         stats,
-        WhatToDo
+        WhatToDo,
+        mdbCardHeader,
+        SVGMap,
+        mdbTbl
     },
     computed: {
+        ...mapGetters(['provincesSortByColumn']),
         provinces() {
-          return this.$store.getters.provincesSortByColumn(
-              this.column,
-              this.direction ? descending : asscending
-          )
+            return this.provincesSortByColumn(
+                this.column,
+                this.direction ? descending : asscending
+            );
         },
         provinceWithFormat() {
-          return  this.provinces.map( (province) => {
-              return {
-                  title: province.title,
-                  cases: this.convertToPresentationalNumber(province.cases),
-                  deaths: this.convertToPresentationalNumber(province.deaths),
-                  recovereds: this.convertToPresentationalNumber(province.recovereds)
+            return  this.provinces.map( (province) => {
+                return {
+                    name: province.name,
+                    total_cases: this.convertToPresentationalNumber(province.total_cases),
+                    total_deaths: this.convertToPresentationalNumber(province.total_deaths),
+                    total_recovered: this.convertToPresentationalNumber(province.total_recovered)
                 };
             });
-        },
-        ...mapState(['provincesStat'])
+        }
     },
     methods: {
       sort(column) {

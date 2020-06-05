@@ -5,8 +5,8 @@
         <mdb-card>
           <mdb-card-header>{{ msg }}</mdb-card-header>
           <mdb-card-body  >
-            <p class="mb-2">Ante tanto ruido en las redes sociales y el mundo queremos llevar informacion oficial y centralizadas a las personas, tus retroalimentaciones nos ayudaran a mejorar, son 3 simples preguntas!</p> 
-            <mdb-btn class="btn-comm" tag="a" icon="comments" href="https://es.surveymonkey.com/r/CBD8BC8" target="_blank">Completa el Formulario!</mdb-btn>
+            <p class="mb-2">Ante tanto ruido en las redes sociales y el mundo queremos llevar informacion oficial y centralizadas a las personas, tus retroalimentaciones nos ayudaran a mejorar, son 3 simples preguntas!</p>
+            <mdb-btn class="btn-comm" tag="a" icon="comments" href="https://forms.gle/vUdHXDuTNwCJ7Ssz9" target="_blank">Completa el Formulario!</mdb-btn>
           </mdb-card-body >
         </mdb-card>
       </mdb-col>
@@ -20,7 +20,7 @@ export default {
   name: 'About',
    components: {
     mdbRow,
-    mdbBtn, 
+    mdbBtn,
     mdbCol,
     mdbCard,
     mdbCardBody,
