@@ -13,7 +13,7 @@ const mapPath = (provincesStat) => {
       .map(province => {
         let oldProvince = store.state.oldProvinces.find(item => province.name === item.title);
         return {
-          ...province.cases[province.cases.length - 1],
+          ...province.cases[0],
           name: province.name,
           data: oldProvince ? oldProvince.data : ''
         };
