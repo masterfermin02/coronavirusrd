@@ -12,8 +12,9 @@ const mapPath = (provincesStat) => {
       .provinces
       .map(province => {
         let oldProvince = store.state.oldProvinces.find(item => province.name === item.title);
+        province.cases.sort((a, b) => new Date(a.date) - new Date(b.date));
         return {
-          ...province.cases[0],
+          ...province.cases[province.cases.length - 1],
           name: province.name,
           data: oldProvince ? oldProvince.data : ''
         };
