@@ -48,7 +48,7 @@ VUE_APP_FIREBASE_MEASUREMENTID=G-XW1JWP29G4
 - [Cron tap](https://github.com/masterfermin02/corona-virus-rd-cron)
 
 # API
-thanks [Isaaz Garcia](https://github.com/isaazgarcia) for allow us to consume his [API](https://covid-rd.now.sh/api/boletin).
+Thanks [Isaaz Garcia](https://github.com/isaazgarcia) to allow us to consume his [API](https://covid-rd.now.sh/api/boletin).
 
 ## Contributors ✨
 Thank goes to these wonderful peoples ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
