@@ -42,8 +42,13 @@ VUE_APP_FIREBASE_MEASUREMENTID=G-XW1JWP29G4
 ### Sources:
 - The theme use in this project: [theme](https://mdbootstrap.com/docs/vue/)
 
-### Admin panel
-- [admin project](https://github.com/masterfermin02/coronavirusrd-admin)
+### Complementaries projects
+- [Admin panel](https://github.com/masterfermin02/coronavirusrd-admin)
+- [Functions](https://github.com/masterfermin02/coronavirus-functions)
+- [Cron tap](https://github.com/masterfermin02/corona-virus-rd-cron)
+
+# API
+thanks [Isaaz Garcia](https://github.com/isaazgarcia) for allow us to consume his [API](https://covid-rd.now.sh/api/boletin).
 
 ## Contributors ✨
 Thank goes to these wonderful peoples ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
