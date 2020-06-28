@@ -27,7 +27,7 @@
             cards() {
                 return [
                     {label: 'INFECTADOS', data: convertToPresentationalNumber(this.provincesStat.cases), icon: 'fa-hospital', color: 'red'},
-                    {label: 'DESCARTADOS', data: convertToPresentationalNumber(this.provincesStat.discarted), icon: 'fa-vials',  color: 'fas fas-far warning-color'},
+                    {label: 'Activos', data: convertToPresentationalNumber(this.provincesStat.cases - this.provincesStat.recoverers - this.provincesStat.deaths), icon: 'fa-vials',  color: 'fas fas-far warning-color'},
                     {label: 'RECUPERADOS', data: convertToPresentationalNumber(this.provincesStat.recoverers), icon: 'fa-walking', color: 'fas fas-far green lighten-1'},
                     {label: 'MUERTES', data: convertToPresentationalNumber(this.provincesStat.deaths), icon: 'fa-skull-crossbones', color: 'fas fas-far black accent-2'}
                 ]
